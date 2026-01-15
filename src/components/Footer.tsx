@@ -82,7 +82,7 @@ export function Footer() {
 
 						<button
 							type="button"
-							className="self-start px-6 py-3 bg-slushup-green hover:bg-slushup-green-light text-white rounded-lg font-semibold transition-all duration-200 shadow-md text-sm sm:text-base"
+							className="self-start px-6 py-3 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
 						>
 							Contact Us
 						</button>

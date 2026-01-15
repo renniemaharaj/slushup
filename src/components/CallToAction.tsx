@@ -6,12 +6,12 @@ export function CallToAction() {
 					Ready to Elevate Your Event?
 				</h2>
 				<p className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-2xl mx-auto">
-					Let's create an unforgettable beverage experience that your guests will remember for years. Contact us today to discuss your vision and get a custom proposal.
+					Let's create an unforgettable beverage experience that your guests will remember for years.
 				</p>
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
 					<button
 						type="button"
-						className="px-8 py-4 bg-white text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg"
+						className="px-8 py-4 bg-white text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
 					>
 						Book Your SlushUp
 					</button>
@@ -22,9 +22,6 @@ export function CallToAction() {
 						Get a Quote
 					</button>
 				</div>
-				<p className="text-white/80 text-base sm:text-lg">
-					Available for events throughout the region. Let's make your event extraordinary.
-				</p>
 			</div>
 		</section>
 	);

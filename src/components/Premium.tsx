@@ -67,9 +67,9 @@ export function Premium() {
 
 						<button
 							type="button"
-							className="px-8 py-3 bg-slushup-green text-white rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:bg-slushup-green-light"
+							className="px-8 py-4 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-lg hover:shadow-xl"
 						>
-							See Our Premium Packages
+							Learn More
 						</button>
 					</div>
 				</div>
