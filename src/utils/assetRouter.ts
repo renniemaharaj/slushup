@@ -1,0 +1,39 @@
+/**
+ * Asset Router
+ *
+ * Maps asset references to their paths in the public folder.
+ * This provides a single source of truth for asset management,
+ * making it easy to update or reorganize assets without touching components.
+ */
+
+export const assetRoutes = {
+	// Bar & Venue Images
+	barImage: "/bar-image.jpeg",
+	barImage2: "/bar-image-2.jpeg",
+	barImageWithPeople: "/bar-image-with-people.jpeg",
+	barImageWithPeople2: "/bar-image-with-people-2.jpeg",
+
+	// Drink Images
+	drinkImageRed: "/drink-image-red.mp4",
+	drinkImageWatermelon: "/drink-image-watermelon.jpeg",
+	drinkImageYellow: "/drink-image-yellow.jpeg",
+	drinkImageRedPurple: "/drink-image-red-background-purple.jpeg",
+
+	// Cheers & Signage
+	cheersSignage: "/drinks-image-cheers-signage.jpeg",
+	cheersWide: "/drinks-image-cheers-wide.jpeg",
+
+	// Videos
+	barVideoShort: "/bar-video-short.mp4",
+	drinksVideoShortPan: "/drinks-video-short-pan-to-signage.mp4",
+	whatsappVideo: "/WhatsApp Video 2026-01-14 at 10.30.51 PM.mp4",
+};
+
+/**
+ * Get asset path
+ * @param key - The asset key from assetRoutes
+ * @returns Full public asset path
+ */
+export const getAsset = (key: keyof typeof assetRoutes): string => {
+	return assetRoutes[key];
+};
