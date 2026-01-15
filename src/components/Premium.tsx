@@ -1,3 +1,5 @@
+import { getAsset } from "../utils/assetRouter";
+
 export function Premium() {
 	const highlights = [
 		"Professional bartenders and trained staff",
@@ -12,17 +14,16 @@ export function Premium() {
 		<section className="bg-slushup-cream/30 py-20 sm:py-28 lg:py-32">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-					{/* Image/Video Placeholder */}
+					{/* Image / Brand */}
 					<div className="h-96 lg:h-[28rem] bg-gradient-to-br from-slushup-green/15 to-slushup-green/5 rounded-3xl overflow-hidden shadow-sm flex items-center justify-center">
-						<div className="text-center">
-							<svg
-								className="w-24 h-24 text-slushup-green mx-auto mb-4"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 3a1 1 0 000 2 1 1 0 000-2zM3 5.5a1 1 0 100 2 1 1 0 000-2zM14 5.5a1 1 0 100 2 1 1 0 000-2zM2 10a1 1 0 100 2 1 1 0 000-2zM16 10a1 1 0 100 2 1 1 0 000-2zM3 14.5a1 1 0 100 2 1 1 0 000-2zM14 14.5a1 1 0 100 2 1 1 0 000-2zM10 15a1 1 0 000 2 1 1 0 000-2z" />
-							</svg>
-							<p className="text-slushup-text/70 mt-2">Premium Experience</p>
+						<div className="flex flex-col items-center">
+							<img
+								src={getAsset("slushUpLogo")}
+								alt="SlushUp logo"
+								className="w-40 sm:w-48 rounded-full opacity-90"
+								draggable={false}
+							/>
+							<p className="text-slushup-text/70 mt-4">Premium Experience</p>
 						</div>
 					</div>
 
@@ -31,12 +32,15 @@ export function Premium() {
 						<p className="text-slushup-green text-sm font-medium tracking-wide uppercase mb-3">
 							Why Choose Us
 						</p>
-						<h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-slushup-text mb-6 leading-tight">
+						<h2 className="text-4xl sm:text-5xl font-bold text-slushup-text mb-6 leading-tight">
 							Premium Experience Every Time
 						</h2>
-						<p className="text-lg sm:text-lg text-slushup-text/70 mb-8 leading-relaxed">
-							Every SlushUp event is crafted with meticulous attention to detail and unwavering commitment to excellence. We bring professionalism, style, and unforgettable moments to your celebration.
+						<p className="text-lg text-slushup-text/70 mb-8 leading-relaxed">
+							Every SlushUp event is crafted with meticulous attention to detail
+							and unwavering commitment to excellence. We bring professionalism,
+							style, and unforgettable moments to your celebration.
 						</p>
+
 						<ul className="space-y-4 mb-10">
 							{highlights.map((highlight) => (
 								<li
@@ -44,6 +48,8 @@ export function Premium() {
 									className="flex items-start gap-4 text-slushup-text/80"
 								>
 									<svg
+										aria-hidden="true"
+										focusable="false"
 										className="w-6 h-6 text-slushup-green mt-0.5 flex-shrink-0"
 										fill="currentColor"
 										viewBox="0 0 20 20"
@@ -58,9 +64,10 @@ export function Premium() {
 								</li>
 							))}
 						</ul>
+
 						<button
 							type="button"
-							className="px-8 py-3 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-md hover:shadow-lg"
+							className="px-8 py-3 bg-slushup-green text-white rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:bg-slushup-green-light"
 						>
 							See Our Premium Packages
 						</button>

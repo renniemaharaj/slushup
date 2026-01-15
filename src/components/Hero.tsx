@@ -3,21 +3,19 @@ import { getAsset } from "../utils/assetRouter";
 export function Hero() {
 	return (
 		<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-			{/* Background video with overlay */}
-			<div className="absolute inset-0 z-0">
-				<video
-					autoPlay
-					muted
-					loop
-					playsInline
-					className="w-full h-full object-cover"
-				>
-					<source src={getAsset("barVideoShort")} type="video/mp4" />
-				</video>
-				<div className="absolute inset-0 bg-gradient-to-b from-slushup-text/40 via-slushup-text/30 to-slushup-text/50" />
-			</div>
-
-			{/* Content */}
+		{/* Background video with overlay */}
+		<div className="absolute inset-0 z-0">
+			<video
+				autoPlay
+				muted
+				loop
+				playsInline
+				className="w-full h-full object-cover blur-sm"
+			>
+				<source src={getAsset("barVideoShort")} type="video/mp4" />
+			</video>
+			<div className="absolute inset-0 bg-gradient-to-b from-slushup-green/60 via-slushup-green/40 to-slushup-green/50" />
+		</div>			{/* Content */}
 			<div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
 				<div className="mb-8 space-y-1">
 					<p className="text-white/80 text-sm font-medium tracking-wide uppercase">

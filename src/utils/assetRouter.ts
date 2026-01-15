@@ -7,6 +7,8 @@
  */
 
 export const assetRoutes = {
+    // Logo
+    slushUpLogo: "/slushup.jpg",
 	// Bar & Venue Images
 	barImage: "/bar-image.jpeg",
 	barImage2: "/bar-image-2.jpeg",
@@ -26,7 +28,7 @@ export const assetRoutes = {
 	// Videos
 	barVideoShort: "/bar-video-short.mp4",
 	drinksVideoShortPan: "/drinks-video-short-pan-to-signage.mp4",
-	whatsappVideo: "/WhatsApp Video 2026-01-14 at 10.30.51 PM.mp4",
+	// whatsappVideo: "/WhatsApp Video 2026-01-14 at 10.30.51 PM.mp4",
 };
 
 /**
