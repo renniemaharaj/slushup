@@ -12,16 +12,6 @@ export function Gallery() {
 			alt: "Professional bar setup at event",
 		},
 		{
-			id: "drinks-1",
-			src: getAsset("drinkImageWatermelon"),
-			alt: "Refreshing watermelon drink",
-		},
-		{
-			id: "cheers",
-			src: getAsset("cheersWide"),
-			alt: "Cheers moment with guests",
-		},
-		{
 			id: "bar-2",
 			src: getAsset("barImageWithPeople2"),
 			alt: "Bar in action at event",
@@ -36,6 +26,22 @@ export function Gallery() {
 			src: getAsset("barImage2"),
 			alt: "Elegant bar setup with drinks",
 		},
+		{
+			id: "bar-5",
+			src: getAsset("barImage3"),
+			alt: "Modern bar setup with lighting",
+		},
+		{
+			id: "drinks-1",
+			src: getAsset("drinkImageWatermelon"),
+			alt: "Refreshing watermelon drink",
+		},
+		{
+			id: "cheers",
+			src: getAsset("cheersWide"),
+			alt: "Cheers moment with guests",
+		},
+
 		{
 			id: "drink-yellow",
 			src: getAsset("drinkImageYellow"),
@@ -74,7 +80,7 @@ export function Gallery() {
 		: verticalItems.slice(0, 2);
 
 	return (
-		<section className="bg-white py-20 sm:py-28 lg:py-32">
+		<section id="gallery" className="bg-white py-20 sm:py-28 lg:py-32">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-16 sm:mb-20">

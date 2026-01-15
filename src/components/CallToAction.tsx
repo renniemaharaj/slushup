@@ -12,15 +12,13 @@ export function CallToAction() {
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
 					<button
 						type="button"
+						onClick={() => {
+							location.href =
+								"https://docs.google.com/forms/d/1HhmbzN6esy_Y-aFH37kuYePjXYxKx-KiR8Lh6tjUCws/viewform";
+						}}
 						className="px-8 py-4 bg-white text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
 					>
 						Book Your SlushUp
-					</button>
-					<button
-						type="button"
-						className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
-					>
-						Get a Quote
 					</button>
 				</div>
 			</div>

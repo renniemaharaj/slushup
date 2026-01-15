@@ -62,7 +62,7 @@ export function Footer() {
 								Gallery
 							</a>
 							<a
-								href="#contact"
+								href="http://wa.me/+18687847976"
 								className="text-white/70 hover:text-white transition-colors"
 							>
 								Contact
@@ -82,6 +82,9 @@ export function Footer() {
 
 						<button
 							type="button"
+							onClick={() => {
+								location.href = "http://wa.me/+18687847976";
+							}}
 							className="self-start px-6 py-3 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
 						>
 							Contact Us

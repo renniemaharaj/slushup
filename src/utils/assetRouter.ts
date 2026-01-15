@@ -12,6 +12,7 @@ export const assetRoutes = {
 	// Bar & Venue Images
 	barImage: "/bar-image.jpeg",
 	barImage2: "/bar-image-2.jpeg",
+    barImage3: "/bar-image-3.jpeg",
 	barImageWithPeople: "/bar-image-with-people.jpeg",
 	barImageWithPeople2: "/bar-image-with-people-2.jpeg",
 
@@ -19,6 +20,7 @@ export const assetRoutes = {
 	drinkImageWatermelon: "/drink-image-watermelon.jpeg",
 	drinkImageYellow: "/drink-image-yellow.jpeg",
 	drinkImageRedPurple: "/drink-image-red-background-purple.jpeg",
+    drinksImageRedBlue: "/drinks-image-red-background-blue.jpeg",
     drinksImageCream: "/drinks-image-cream.jpeg",
     drinksImageSunset: "/drinks-image-sunset.jpeg",
 

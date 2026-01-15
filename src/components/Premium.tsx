@@ -67,6 +67,9 @@ export function Premium() {
 
 						<button
 							type="button"
+							onClick={() => {
+								location.href = "http://wa.me/+18687847976";
+							}}
 							className="px-8 py-4 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-lg hover:shadow-xl"
 						>
 							Learn More

@@ -1,6 +1,12 @@
 export function Audience() {
 	const audiences = [
 		{
+			id: "birthday-parties",
+			title: "Birthday Parties",
+			description:
+				"Celebrate in style with custom beverage options that make your birthdays truly memorable.",
+		},
+		{
 			id: "corporate",
 			title: "Corporate Events",
 			description:
@@ -21,7 +27,7 @@ export function Audience() {
 	];
 
 	return (
-		<section className="bg-white py-20 sm:py-28 lg:py-32">
+		<section id="occasions" className="bg-white py-20 sm:py-28 lg:py-32">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-16 sm:mb-20">
 					<p className="text-slushup-green/80 text-sm font-medium tracking-wide uppercase mb-3">
