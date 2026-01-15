@@ -21,34 +21,38 @@ export function Audience() {
 	];
 
 	return (
-		<section className="max-w-6xl mx-auto px-4 py-12 md:py-20 bg-white">
-			<div className="text-center mb-16">
-				<h2 className="text-4xl md:text-5xl font-bold text-slushup-green mb-4">
-					Perfect For Every Occasion
-				</h2>
-				<p className="text-xl text-slushup-text max-w-2xl mx-auto">
-					From intimate gatherings to large celebrations, SlushUp brings the
-					premium experience
-				</p>
-			</div>
+		<section className="bg-white py-20 sm:py-28 lg:py-32">
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="text-center mb-16 sm:mb-20">
+					<p className="text-slushup-green text-sm font-medium tracking-wide uppercase mb-3">
+						Event Types
+					</p>
+					<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slushup-text mb-6 tracking-tight">
+						Perfect For Every Occasion
+					</h2>
+					<p className="text-lg sm:text-xl text-slushup-text/70 max-w-3xl mx-auto leading-relaxed">
+						From intimate gatherings to large celebrations, SlushUp creates unforgettable beverage experiences that elevate any event.
+					</p>
+				</div>
 
-			<div className="space-y-12">
-				{audiences.map((audience, index) => (
-					<div
-						key={audience.id}
-						className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-12 items-center`}
-					>
-						<div className="flex-1">
-							<h3 className="text-3xl font-bold text-slushup-green mb-4">
-								{audience.title}
-							</h3>
-							<p className="text-lg text-slushup-text leading-relaxed">
-								{audience.description}
-							</p>
+				<div className="space-y-16 lg:space-y-20">
+					{audiences.map((audience, index) => (
+						<div
+							key={audience.id}
+							className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 lg:gap-16 items-center`}
+						>
+							<div className="flex-1">
+								<h3 className="text-3xl sm:text-4xl font-bold text-slushup-text mb-4 leading-tight">
+									{audience.title}
+								</h3>
+								<p className="text-lg sm:text-xl text-slushup-text/70 leading-relaxed">
+									{audience.description}
+								</p>
+							</div>
+							<div className="flex-1 h-72 bg-gradient-to-br from-slushup-green/5 to-slushup-green/10 rounded-2xl shadow-sm" />
 						</div>
-						<div className="flex-1 h-64 bg-gradient-to-br from-slushup-green/10 to-slushup-cream rounded-xl" />
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</section>
 	);
