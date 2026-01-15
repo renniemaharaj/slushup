@@ -1,19 +1,46 @@
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getAsset } from "../utils/assetRouter";
 
 export function Hero() {
+	const videos = [getAsset("barVideoShort"), getAsset("drinksVideoShortPan")];
+
+	const videoRef = useRef<HTMLVideoElement | null>(null);
+	const [videoIndex, setVideoIndex] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setVideoIndex((prev) => (prev + 1) % videos.length);
+		}, 5000); // 9 seconds feels right for hero pacing
+
+		return () => clearInterval(interval);
+	}, [videos.length]);
+
+	useEffect(() => {
+		if (!videoRef.current) return;
+
+		videoRef.current.src = videos[videoIndex];
+		videoRef.current.load();
+		videoRef.current.play().catch(() => {
+			/* autoplay safety */
+		});
+		// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	}, [videoIndex, videos]);
+
 	return (
 		<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-			{/* Background video with overlay */}
+			{/* Background video */}
 			<div className="absolute inset-0 z-0">
 				<video
+					ref={videoRef}
 					autoPlay
 					muted
 					loop
 					playsInline
-					className="w-full h-full object-cover blur-sm"
+					className="w-full h-full object-cover blur-sm transition-opacity duration-700"
 				>
-					<source src={getAsset("barVideoShort")} type="video/mp4" />
+					<source src={videos[0]} type="video/mp4" />
 				</video>
+
 				<div className="absolute inset-0 bg-gradient-to-b from-slushup-green/60 via-slushup-green/40 to-slushup-green/50" />
 			</div>
 
@@ -30,7 +57,8 @@ export function Hero() {
 				</h1>
 
 				<p className="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-					Premium frozen treats and beverage experiences that leave your guests talking for years.
+					Premium frozen treats and beverage experiences that leave your guests
+					talking for years.
 				</p>
 
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -40,6 +68,7 @@ export function Hero() {
 					>
 						Book Your SlushUp
 					</button>
+
 					<button
 						type="button"
 						className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-200"

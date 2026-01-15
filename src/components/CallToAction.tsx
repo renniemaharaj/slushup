@@ -6,7 +6,8 @@ export function CallToAction() {
 					Ready to Elevate Your Event?
 				</h2>
 				<p className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-2xl mx-auto">
-					Let's create an unforgettable beverage experience that your guests will remember for years.
+					Let's create an unforgettable beverage experience that your guests
+					will remember for years.
 				</p>
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
 					<button

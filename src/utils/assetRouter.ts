@@ -16,10 +16,11 @@ export const assetRoutes = {
 	barImageWithPeople2: "/bar-image-with-people-2.jpeg",
 
 	// Drink Images
-	drinkImageRed: "/drink-image-red.mp4",
 	drinkImageWatermelon: "/drink-image-watermelon.jpeg",
 	drinkImageYellow: "/drink-image-yellow.jpeg",
 	drinkImageRedPurple: "/drink-image-red-background-purple.jpeg",
+    drinksImageCream: "/drinks-image-cream.jpeg",
+    drinksImageSunset: "/drinks-image-sunset.jpeg",
 
 	// Cheers & Signage
 	cheersSignage: "/drinks-image-cheers-signage.jpeg",
@@ -28,7 +29,6 @@ export const assetRoutes = {
 	// Videos
 	barVideoShort: "/bar-video-short.mp4",
 	drinksVideoShortPan: "/drinks-video-short-pan-to-signage.mp4",
-	// whatsappVideo: "/WhatsApp Video 2026-01-14 at 10.30.51 PM.mp4",
 };
 
 /**
