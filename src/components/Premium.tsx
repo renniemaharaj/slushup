@@ -65,15 +65,18 @@ export function Premium() {
 							))}
 						</ul>
 
-						<button
-							type="button"
-							onClick={() => {
-								location.href = "http://wa.me/+18687847976";
-							}}
-							className="px-8 py-4 bg-slushup-green text-white rounded-lg font-semibold hover:bg-slushup-green-light transition-all duration-200 shadow-lg hover:shadow-xl"
-						>
-							Learn More
-						</button>
+						<div className="flex animate-pulse flex-col sm:flex-row gap-4 justify-center items-center">
+							<button
+								type="button"
+								onClick={() => {
+									location.href =
+										"https://docs.google.com/forms/d/1HhmbzN6esy_Y-aFH37kuYePjXYxKx-KiR8Lh6tjUCws/viewform";
+								}}
+								className="px-8 py-4 bg-white text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+							>
+								Book Your SlushUp
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

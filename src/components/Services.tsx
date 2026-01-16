@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function Services() {
 	const [expandedId, setExpandedId] = useState<string | null>(null);
-	const [showAll, setShowAll] = useState(false);
+	const [showAll, setShowAll] = useState(true);
 
 	const services = [
 		{

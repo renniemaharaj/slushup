@@ -23,13 +23,23 @@ export const assetRoutes = {
     drinksImageRedBlue: "/drinks-image-red-background-blue.jpeg",
     drinksImageCream: "/drinks-image-cream.jpeg",
     drinksImageSunset: "/drinks-image-sunset.jpeg",
+    drinkImageGreen: "/drink-image-green.jpeg",
+    drinksImageBabyLucasSignage: "/drinks-image-baby-lucas-signage.jpeg",
+    drinksImageMany: "/drinks-image-many.jpeg",
 
 	// Cheers & Signage
 	cheersSignage: "/drinks-image-cheers-signage.jpeg",
+    signageImagePurple: "/signage-image-purple.jpeg",
 	cheersWide: "/drinks-image-cheers-wide.jpeg",
+
+    //People
+    peopleImage1: "/people-image-1.jpeg",
+    peopleImage2: "/people-image-2.jpeg",
+    peopleImage3: "/people-image-3.jpeg",
 
 	// Videos
 	barVideoShort: "/bar-video-short.mp4",
+    drinkImageRed: "/drink-image-red.mp4",
 	drinksVideoShortPan: "/drinks-video-short-pan-to-signage.mp4",
 };
 

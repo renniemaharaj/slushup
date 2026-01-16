@@ -4,7 +4,10 @@ export function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="relative bg-slushup-text text-white overflow-hidden">
+		<footer
+			id="footer"
+			className="relative bg-slushup-text text-white overflow-hidden"
+		>
 			{/* Background Logo */}
 			<img
 				src={getAsset("slushUpLogo")}
