@@ -16,6 +16,7 @@ const assets = {
 	barWithPeople1: "/bar-image-with-people.jpeg",
 	barWithPeople2: "/bar-image-with-people-2.jpeg",
 	barWithPeople3: "/bar-image-3-with-people.jpeg",
+    barWithPeopleWide2: "/bar-image-with-people-3-wide.jpeg",
 	barWithPeopleWide: "/bar-image-with-people-wide.jpeg",
 
 	// Drink Images (only files that exist)
@@ -28,6 +29,7 @@ const assets = {
 	drinksCream: "/drinks-image-cream.jpeg",
 	drinksSunset: "/drinks-image-sunset.jpeg",
 	drinksBabyLucasSignage: "/drinks-image-baby-lucas-signage.jpeg",
+    drinksBirthdaySignageWide: "/drinks-image-birthday-signage-wide.jpeg",
 	drinksMany: "/drinks-image-many.jpeg",
 	drinksMany2: "/drinks-image-many-2.jpeg",
 

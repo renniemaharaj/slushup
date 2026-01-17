@@ -16,6 +16,7 @@ const {
 	drinksSunset,
 	drinkGreen,
 	drinksBabyLucasSignage,
+	barWithPeopleWide2,
 	purpleSignage,
 	drinksMany,
 	drinksMany2,
@@ -133,6 +134,11 @@ const MOMENT_ITEMS: GalleryItem[] = [
 		id: "moment-2",
 		src: barWithPeople3,
 		alt: "Elegant bar setup with guests",
+	},
+	{
+		id: "moment-3",
+		src: barWithPeopleWide2,
+		alt: "Guests enjoying drinks at sunset",
 	},
 ];
 

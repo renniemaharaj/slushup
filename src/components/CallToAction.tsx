@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 
 export function CallToAction() {
 	return (
-		<section className="bg-slushup-green py-20 sm:py-28 lg:py-32 text-white">
+		<section
+			id="contact"
+			className="bg-slushup-green py-20 sm:py-28 lg:py-32 text-white"
+		>
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 				<motion.h2
 					initial={{ opacity: 0, y: 20 }}

@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import assets from "../utils/assetRouter";
 
-const { barWithPeopleWide, peopleWide, drinksWeddingsWide } = assets;
+const {
+	barWithPeopleWide,
+	peopleWide,
+	drinksWeddingsWide,
+	drinksBirthdaySignageWide,
+} = assets;
 
 export function Audience() {
 	const audiences = [
@@ -10,6 +15,7 @@ export function Audience() {
 			title: "Birthday Parties",
 			description:
 				"Celebrate in style with custom beverage options that make your birthdays truly memorable.",
+			thumbnail: drinksBirthdaySignageWide,
 		},
 		{
 			id: "corporate",
