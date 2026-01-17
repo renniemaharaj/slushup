@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import assets from "../utils/assetRouter";
 
-const { appLogo } = assets;
-
 export function Premium() {
 	const highlights = [
 		"Professional bartenders and trained staff",
@@ -27,7 +25,7 @@ export function Premium() {
 					>
 						<div className="flex flex-col items-center">
 							<img
-								src={appLogo}
+								src={assets.logo}
 								alt="SlushUp logo"
 								className="w-40 sm:w-48 rounded-full opacity-90"
 								draggable={false}

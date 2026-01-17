@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import assets from "../utils/assetRouter";
 
-const { appLogo } = assets;
-
 export function Footer() {
 	const currentYear = new Date().getFullYear();
 
@@ -13,7 +11,7 @@ export function Footer() {
 		>
 			{/* Background Logo */}
 			<img
-				src={appLogo}
+				src={assets.logo}
 				alt=""
 				aria-hidden="true"
 				draggable={false}

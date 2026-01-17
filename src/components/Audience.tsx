@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import assets from "../utils/assetRouter";
 
-const { barWithPeopleWide1, peopleWide1, drinksWeddingsWide } = assets;
+const { barWithPeopleWide, peopleWide, drinksWeddingsWide } = assets;
 
 export function Audience() {
 	const audiences = [
@@ -16,7 +16,7 @@ export function Audience() {
 			title: "Corporate Events",
 			description:
 				"Impress clients and reward employees with premium beverage experiences at conferences, product launches, and team celebrations.",
-			thumbnail: barWithPeopleWide1,
+			thumbnail: barWithPeopleWide,
 		},
 		{
 			id: "weddings",
@@ -30,7 +30,7 @@ export function Audience() {
 			title: "Professionals",
 			description:
 				"Perfect for networking events, happy hours, and social gatherings where great drinks make great connections.",
-			thumbnail: peopleWide1,
+			thumbnail: peopleWide,
 		},
 	];
 
