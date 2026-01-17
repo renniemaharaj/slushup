@@ -1,4 +1,5 @@
-import assets from "../../assetRouter.ts";
+import { motion } from "framer-motion";
+import assets from "../utils/assetRouter";
 
 const { appLogo } = assets;
 
@@ -31,7 +32,13 @@ export function Footer() {
 
 			<div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
 				{/* Top */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
+				<motion.div
+					className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6 }}
+				>
 					{/* Brand Copy */}
 					<div>
 						<h3 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">
@@ -95,7 +102,7 @@ export function Footer() {
 							Contact Us
 						</button>
 					</div>
-				</div>
+				</motion.div>
 
 				{/* Bottom */}
 				<div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">

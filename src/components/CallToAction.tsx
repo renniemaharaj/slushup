@@ -1,26 +1,46 @@
+import { motion } from "framer-motion";
+
 export function CallToAction() {
 	return (
 		<section className="bg-slushup-green py-20 sm:py-28 lg:py-32 text-white">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-				<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+				<motion.h2
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6 }}
+					className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
+				>
 					Ready to Elevate Your Event?
-				</h2>
-				<p className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-2xl mx-auto">
+				</motion.h2>
+				<motion.p
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6, delay: 0.1 }}
+					className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-2xl mx-auto"
+				>
 					Let's create an unforgettable beverage experience that your guests
 					will remember for years.
-				</p>
-				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+				</motion.p>
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+					className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+				>
 					<button
 						type="button"
 						onClick={() => {
 							location.href =
 								"https://docs.google.com/forms/d/1HhmbzN6esy_Y-aFH37kuYePjXYxKx-KiR8Lh6tjUCws/viewform";
 						}}
-						className="px-8 py-4 bg-white animate-pulse text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+						className="px-8 py-4 bg-white text-slushup-green rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
 					>
 						Book Your SlushUp
 					</button>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

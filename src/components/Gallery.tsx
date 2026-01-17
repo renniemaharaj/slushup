@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import assets from "../../assetRouter.ts";
+import assets from "../utils/assetRouter";
 
 const {
 	bar1,

@@ -1,13 +1,27 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import assets from "../../assetRouter.ts";
-import { Navigation } from "./Navigation";
+import assets from "../utils/assetRouter";
 
-const { barVideoShort, drinkRed, drinksVideoShortPan } = assets;
-const HERO_VIDEOS = [barVideoShort, drinkRed, drinksVideoShortPan];
+const HERO_VIDEOS = [
+	assets.videoBarShort,
+	assets.videoDrinkRed,
+	assets.videoDrinksSignagePan,
+];
 
 export function Hero() {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
 	const [videoIndex, setVideoIndex] = useState(0);
+	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start start", "end start"],
+	});
+
+	// Slogan scales down and moves up-left as user scrolls
+	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
+	const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
+	const x = useTransform(scrollYProgress, [0, 1], [0, -60]);
+	const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
 
 	useEffect(() => {
 		const video = videoRef.current;
@@ -41,7 +55,7 @@ export function Hero() {
 			</div>
 
 			{/* Right-side compact nav */}
-			<Navigation />
+			{/* Removed - Header now at top */}
 
 			{/* Content */}
 			<div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
@@ -49,9 +63,12 @@ export function Hero() {
 					Premium Event Beverages
 				</p>
 
-				<h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-					“Live The SlushUp Life”
-				</h1>
+				<motion.h1
+					style={{ scale, y, x, opacity }}
+					className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight origin-center"
+				>
+					"Live The SlushUp Life"
+				</motion.h1>
 
 				<p className="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
 					Premium frozen treats and beverage experiences that leave your guests

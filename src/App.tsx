@@ -5,6 +5,7 @@ import {
 	CallToAction,
 	Footer,
 	Gallery,
+	Header,
 	Hero,
 	Premium,
 	Services,
@@ -42,6 +43,7 @@ function Section({ children }: { children: React.ReactNode }) {
 function App() {
 	return (
 		<main className="min-h-screen bg-slushup-cream">
+			<Header />
 			<Hero />
 
 			<Services />

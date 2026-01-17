@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export function Services() {
 	const [expandedId, setExpandedId] = useState<string | null>(null);
 	const [showAll, setShowAll] = useState(true);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	const services = [
 		{
@@ -59,9 +60,19 @@ export function Services() {
 	const visibleServices = showAll ? services : services.slice(0, 3);
 
 	return (
-		<section id="services" className="bg-white py-20 sm:py-28 lg:py-32">
+		<section
+			ref={containerRef}
+			id="services"
+			className="bg-white py-20 sm:py-28 lg:py-32"
+		>
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="text-center mb-16 sm:mb-20">
+				<motion.div
+					className="text-center mb-16 sm:mb-20"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6 }}
+				>
 					<p className="text-slushup-green/80 text-sm font-medium tracking-wide uppercase mb-3">
 						What We Offer
 					</p>
@@ -72,7 +83,7 @@ export function Services() {
 						Comprehensive beverage solutions for every event need, delivered
 						with premium quality and professional service.
 					</p>
-				</div>
+				</motion.div>
 
 				<div className="relative">
 					<div

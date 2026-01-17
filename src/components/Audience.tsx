@@ -1,4 +1,5 @@
-import assets from "../../assetRouter.ts";
+import { motion } from "framer-motion";
+import assets from "../utils/assetRouter";
 
 const { barWithPeopleWide1, peopleWide1, drinksWeddingsWide } = assets;
 
@@ -36,7 +37,13 @@ export function Audience() {
 	return (
 		<section id="occasions" className="bg-white py-20 sm:py-28 lg:py-32">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="text-center mb-16 sm:mb-20">
+				<motion.div
+					className="text-center mb-16 sm:mb-20"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.6 }}
+				>
 					<p className="text-slushup-green/80 text-sm font-medium tracking-wide uppercase mb-3">
 						Event Types
 					</p>
@@ -47,12 +54,16 @@ export function Audience() {
 						From intimate gatherings to large celebrations, SlushUp creates
 						unforgettable beverage experiences that elevate any event.
 					</p>
-				</div>
+				</motion.div>
 
 				<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-					{audiences.map((audience) => (
-						<div
+					{audiences.map((audience, index) => (
+						<motion.div
 							key={audience.id}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "-100px" }}
+							transition={{ duration: 0.5, delay: index * 0.1 }}
 							className="group bg-white border border-gray-100 rounded-2xl p-8 hover:border-slushup-green/30 transition-all duration-300"
 						>
 							{/* Thumbnail slot */}
@@ -76,7 +87,7 @@ export function Audience() {
 							<p className="text-slushup-text/70 leading-relaxed">
 								{audience.description}
 							</p>
-						</div>
+						</motion.div>
 					))}
 				</div>
 			</div>

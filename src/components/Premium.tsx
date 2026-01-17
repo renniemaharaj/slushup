@@ -1,4 +1,5 @@
-import assets from "../../assetRouter.ts";
+import { motion } from "framer-motion";
+import assets from "../utils/assetRouter";
 
 const { appLogo } = assets;
 
@@ -17,7 +18,13 @@ export function Premium() {
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 					{/* Image / Brand */}
-					<div className="h-96 lg:h-[28rem] bg-gradient-to-br from-slushup-green/15 to-slushup-green/5 rounded-3xl overflow-hidden shadow-sm flex items-center justify-center">
+					<motion.div
+						initial={{ opacity: 0, x: -30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.6 }}
+						className="h-96 lg:h-[28rem] bg-gradient-to-br from-slushup-green/15 to-slushup-green/5 rounded-3xl overflow-hidden shadow-sm flex items-center justify-center"
+					>
 						<div className="flex flex-col items-center">
 							<img
 								src={appLogo}
@@ -27,10 +34,15 @@ export function Premium() {
 							/>
 							<p className="text-slushup-text/70 mt-4">Premium Experience</p>
 						</div>
-					</div>
+					</motion.div>
 
 					{/* Content */}
-					<div>
+					<motion.div
+						initial={{ opacity: 0, x: 30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.6 }}
+					>
 						<p className="text-slushup-green text-sm font-medium tracking-wide uppercase mb-3">
 							Why Choose Us
 						</p>
@@ -67,7 +79,7 @@ export function Premium() {
 							))}
 						</ul>
 
-						<div className="flex animate-pulse flex-col sm:flex-row gap-4 justify-center items-center">
+						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 							<button
 								type="button"
 								onClick={() => {
@@ -79,7 +91,7 @@ export function Premium() {
 								Book Your SlushUp
 							</button>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</section>
