@@ -1,6 +1,28 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { getAsset } from "../utils/assetRouter";
+import assets from "../../assetRouter.ts";
+
+const {
+	bar1,
+	bar2,
+	bar3,
+	barWithPeople1,
+	barWithPeople3,
+	cheersSignageWide,
+	drinkWatermelon,
+	drinkYellow,
+	drinkRedPurple,
+	drinksCream,
+	drinksSunset,
+	drinkGreen,
+	drinksBabyLucasSignage,
+	purpleSignage,
+	drinksMany,
+	drinksMany2,
+	people1,
+	people2,
+	people3,
+} = assets;
 
 type AlbumKey = "all" | "bars" | "drinks" | "moments";
 
@@ -13,17 +35,17 @@ type GalleryItem = {
 const BAR_ITEMS: GalleryItem[] = [
 	{
 		id: "bar-1",
-		src: getAsset("barImage"),
+		src: bar1,
 		alt: "Professional bar setup at event",
 	},
 	{
 		id: "bar-2",
-		src: getAsset("barImage2"),
+		src: bar2,
 		alt: "Elegant bar setup with drinks",
 	},
 	{
 		id: "bar-3",
-		src: getAsset("barImage3"),
+		src: bar3,
 		alt: "Modern bar setup with lighting",
 	},
 ];
@@ -31,76 +53,86 @@ const BAR_ITEMS: GalleryItem[] = [
 const DRINK_ITEMS: GalleryItem[] = [
 	{
 		id: "cheers",
-		src: getAsset("cheersWide"),
+		src: cheersSignageWide,
 		alt: "Cheers moment with guests",
 	},
 	{
 		id: "drink-1",
-		src: getAsset("drinkImageWatermelon"),
+		src: drinkWatermelon,
 		alt: "Refreshing watermelon drink",
 	},
 	{
 		id: "drink-yellow",
-		src: getAsset("drinkImageYellow"),
+		src: drinkYellow,
 		alt: "Vibrant yellow cocktail",
 	},
 	{
 		id: "drink-2",
-		src: getAsset("drinksImageCream"),
+		src: drinkRedPurple,
 		alt: "Delicious red cocktail drink",
 	},
 	{
 		id: "drink-3",
-		src: getAsset("drinksImageSunset"),
+		src: drinksSunset,
 		alt: "Colorful sunset drink",
 	},
 	{
-		id: "drink-red-purple",
-		src: getAsset("drinkImageRedPurple"),
-		alt: "Red and purple cocktail drink",
-	},
-	{
 		id: "signage",
-		src: getAsset("signageImagePurple"),
+		src: purpleSignage,
 		alt: "SlushUp branded signage",
 	},
 	{
 		id: "drink-green",
-		src: getAsset("drinkImageGreen"),
+		src: drinkGreen,
 		alt: "Vibrant green cocktail",
 	},
 	{
 		id: "drink-baby-lucas-signage",
-		src: getAsset("drinksImageBabyLucasSignage"),
+		src: drinksBabyLucasSignage,
 		alt: "Baby Lucas SlushUp signage",
 	},
 	{
 		id: "drink-many",
-		src: getAsset("drinksImageMany"),
+		src: drinksMany,
 		alt: "Variety of SlushUp drinks",
+	},
+	{
+		id: "drink-many-2",
+		src: drinksMany2,
+		alt: "Variety of SlushUp drinks",
+	},
+	{
+		id: "drink-cream",
+		src: drinksCream,
+		alt: "Creamy SlushUp drink",
 	},
 ];
 
 const MOMENT_ITEMS: GalleryItem[] = [
 	{
 		id: "moment-1",
-		src: getAsset("barImageWithPeople"),
+		src: barWithPeople1,
 		alt: "Professional bar setup at event",
 	},
 	{
 		id: "people-1",
-		src: getAsset("peopleImage1"),
+		src: people1,
 		alt: "Guests enjoying drinks at event",
 	},
 	{
 		id: "people-2",
-		src: getAsset("peopleImage2"),
+		src: people2,
 		alt: "Guests enjoying drinks at event",
 	},
 	{
 		id: "people-3",
-		src: getAsset("peopleImage3"),
+		src: people3,
 		alt: "Guests enjoying drinks at event",
+	},
+	{
+		id: "moment-2",
+		src: barWithPeople3,
+		alt: "Elegant bar setup with guests",
 	},
 ];
 
@@ -201,14 +233,19 @@ export function Gallery() {
 									setAlbumInURL(album.key);
 									setShowAll(false);
 								}}
-								className="relative px-5 py-2 text-sm font-medium text-slushup-green"
+								className={`relative px-5 py-2 text-sm font-medium rounded-md transition-colors
+		${
+			isActive
+				? "bg-slushup-green text-white"
+				: "bg-slushup-green/10 text-slushup-green hover:bg-slushup-green/20"
+		}`}
 							>
 								{album.label}
 
 								{isActive && (
 									<motion.span
 										layoutId="album-underline"
-										className="absolute left-0 right-0 -bottom-1 h-0.5 bg-slushup-green rounded"
+										className="absolute left-4 right-4 -bottom-1 h-0.5 bg-white rounded"
 									/>
 								)}
 							</button>

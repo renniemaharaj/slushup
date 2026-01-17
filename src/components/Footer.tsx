@@ -1,4 +1,6 @@
-import { getAsset } from "../utils/assetRouter";
+import assets from "../../assetRouter.ts";
+
+const { appLogo } = assets;
 
 export function Footer() {
 	const currentYear = new Date().getFullYear();
@@ -10,7 +12,7 @@ export function Footer() {
 		>
 			{/* Background Logo */}
 			<img
-				src={getAsset("slushUpLogo")}
+				src={appLogo}
 				alt=""
 				aria-hidden="true"
 				draggable={false}

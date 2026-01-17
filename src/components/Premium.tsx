@@ -1,4 +1,6 @@
-import { getAsset } from "../utils/assetRouter";
+import assets from "../../assetRouter.ts";
+
+const { appLogo } = assets;
 
 export function Premium() {
 	const highlights = [
@@ -18,7 +20,7 @@ export function Premium() {
 					<div className="h-96 lg:h-[28rem] bg-gradient-to-br from-slushup-green/15 to-slushup-green/5 rounded-3xl overflow-hidden shadow-sm flex items-center justify-center">
 						<div className="flex flex-col items-center">
 							<img
-								src={getAsset("slushUpLogo")}
+								src={appLogo}
 								alt="SlushUp logo"
 								className="w-40 sm:w-48 rounded-full opacity-90"
 								draggable={false}

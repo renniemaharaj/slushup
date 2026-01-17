@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { getAsset } from "../utils/assetRouter";
+import assets from "../../assetRouter.ts";
+import { Navigation } from "./Navigation";
 
-const HERO_VIDEOS = [
-	getAsset("barVideoShort"),
-	getAsset("drinkImageRed"),
-	getAsset("drinksVideoShortPan"),
-];
+const { barVideoShort, drinkRed, drinksVideoShortPan } = assets;
+const HERO_VIDEOS = [barVideoShort, drinkRed, drinksVideoShortPan];
 
 export function Hero() {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -43,38 +41,7 @@ export function Hero() {
 			</div>
 
 			{/* Right-side compact nav */}
-			<nav
-				className="fixed right-4 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3 p-2 rounded-lg bg-black/20 backdrop-blur-sm"
-				aria-label="Section navigation"
-			>
-				<a
-					href="#services"
-					className="w-3 h-3 rounded-full bg-white/80 hover:bg-white transition focus:outline-none focus:ring-2 focus:ring-white"
-				>
-					<span className="sr-only">Services</span>
-				</a>
-
-				<a
-					href="#occasions"
-					className="w-3 h-3 rounded-full bg-white/80 hover:bg-white transition focus:outline-none focus:ring-2 focus:ring-white"
-				>
-					<span className="sr-only">Occasions</span>
-				</a>
-
-				<a
-					href="#gallery"
-					className="w-3 h-3 rounded-full bg-white/80 hover:bg-white transition focus:outline-none focus:ring-2 focus:ring-white"
-				>
-					<span className="sr-only">Gallery</span>
-				</a>
-
-				<a
-					href="#footer"
-					className="w-3 h-3 rounded-full bg-white/80 hover:bg-white transition focus:outline-none focus:ring-2 focus:ring-white"
-				>
-					<span className="sr-only">Footer</span>
-				</a>
-			</nav>
+			<Navigation />
 
 			{/* Content */}
 			<div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
@@ -83,7 +50,7 @@ export function Hero() {
 				</p>
 
 				<h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-					Live “The SlushUp Life”
+					“Live The SlushUp Life”
 				</h1>
 
 				<p className="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light">

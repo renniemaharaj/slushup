@@ -1,3 +1,7 @@
+import assets from "../../assetRouter.ts";
+
+const { barWithPeopleWide1, peopleWide1, drinksWeddingsWide } = assets;
+
 export function Audience() {
 	const audiences = [
 		{
@@ -11,18 +15,21 @@ export function Audience() {
 			title: "Corporate Events",
 			description:
 				"Impress clients and reward employees with premium beverage experiences at conferences, product launches, and team celebrations.",
+			thumbnail: barWithPeopleWide1,
 		},
 		{
 			id: "weddings",
 			title: "Weddings",
 			description:
 				"Make your special day unforgettable with signature cocktails, mocktails, and frozen treats that delight every guest.",
+			thumbnail: drinksWeddingsWide,
 		},
 		{
 			id: "professionals",
 			title: "Professionals",
 			description:
 				"Perfect for networking events, happy hours, and social gatherings where great drinks make great connections.",
+			thumbnail: peopleWide1,
 		},
 	];
 
@@ -48,7 +55,19 @@ export function Audience() {
 							key={audience.id}
 							className="group bg-white border border-gray-100 rounded-2xl p-8 hover:border-slushup-green/30 transition-all duration-300"
 						>
-							<div className="mb-6 h-24 rounded-xl bg-gradient-to-br from-slushup-green/[0.04] to-slushup-green/[0.12]" />
+							{/* Thumbnail slot */}
+							<div className="mb-6 h-24 w-full overflow-hidden rounded-xl">
+								{audience.thumbnail ? (
+									<img
+										src={audience.thumbnail}
+										alt={audience.title}
+										className="h-full w-full object-cover object-top"
+										loading="lazy"
+									/>
+								) : (
+									<div className="h-full w-full bg-gradient-to-br from-slushup-green/[0.04] to-slushup-green/[0.12]" />
+								)}
+							</div>
 
 							<h3 className="text-2xl font-bold text-slushup-text mb-3 leading-tight">
 								{audience.title}
