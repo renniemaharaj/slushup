@@ -18,10 +18,9 @@ export function Hero() {
 		offset: ["start start", "end start"],
 	});
 
-	// Slogan scales down and moves up-left as user scrolls
+	// Slogan scales down and moves up as user scrolls
 	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 	const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
-	const x = useTransform(scrollYProgress, [0, 1], [0, -60]);
 	const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
 
 	// Load and play video when index changes
@@ -58,7 +57,7 @@ export function Hero() {
 	}, []);
 
 	return (
-		<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+		<section className="relative min-h-screen flex items-center justify-center overflow-x-hidden overflow-y-visible">
 			{/* Background video */}
 			<div className="absolute inset-0 z-0">
 				<video
@@ -75,13 +74,13 @@ export function Hero() {
 			<Navigation />
 
 			{/* Content */}
-			<div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+			<div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center overflow-hidden">
 				<p className="text-white/80 text-sm font-medium tracking-wide uppercase mb-2">
 					Premium Event Beverages
 				</p>
 
 				<motion.h1
-					style={{ scale, y, x, opacity }}
+					style={{ scale, y, opacity }}
 					className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight origin-center"
 				>
 					"Live The SlushUp Life"

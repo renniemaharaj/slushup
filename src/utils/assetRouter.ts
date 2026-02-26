@@ -8,6 +8,7 @@
 const assets = {
 	// Logo
 	logo: "/slushup.jpg",
+    banner: "/slushup-banner.jpeg",
 
 	// Bar Images (only files that exist)
 	bar1: "/bar-image.jpeg",

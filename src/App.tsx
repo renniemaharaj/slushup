@@ -1,5 +1,6 @@
 import "./App.css";
 import { motion, type Variants } from "framer-motion";
+import { useSetAtom } from "jotai";
 import {
 	Audience,
 	CallToAction,
@@ -10,24 +11,42 @@ import {
 	Premium,
 	Services,
 } from "./components";
+import {
+	type Section as AtomSection,
+	currentSectionAtom,
+} from "./states/cursection";
 
 const sectionVariants: Variants = {
-	hidden: {
-		opacity: 0,
-		y: 100,
-	},
+	hidden: { opacity: 0, y: 100 },
 	visible: {
 		opacity: 1,
 		y: 0,
-		transition: {
-			delay: 0.2,
-			duration: 0.9,
-			ease: "easeInOut",
-		},
+		transition: { delay: 0.2, duration: 0.9, ease: "easeInOut" },
 	},
 };
 
-function Section({ children }: { children: React.ReactNode }) {
+function WithSectionName({
+	children,
+	name,
+}: {
+	children: React.ReactNode;
+	name: AtomSection;
+}) {
+	const setCurrentSection = useSetAtom(currentSectionAtom);
+
+	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: <explanation>
+		<div
+			onFocusCapture={() => setCurrentSection(name)}
+			onMouseEnter={() => setCurrentSection(name)}
+			onTouchStart={() => setCurrentSection(name)}
+		>
+			{children}
+		</div>
+	);
+}
+
+function AnimatedSection({ children }: { children: React.ReactNode }) {
 	return (
 		<motion.section
 			variants={sectionVariants}
@@ -44,27 +63,35 @@ function App() {
 	return (
 		<main className="min-h-screen bg-slushup-cream">
 			<Header />
-			<Hero />
-
-			<Services />
-
-			<Section>
-				<Audience />
-			</Section>
-
-			<Section>
-				<Premium />
-			</Section>
-
-			<Section>
-				<Gallery />
-			</Section>
-
-			<Section>
-				<CallToAction />
-			</Section>
-
-			<Footer />
+			<WithSectionName name="hero">
+				<Hero />
+			</WithSectionName>
+			<WithSectionName name="services">
+				<Services />
+			</WithSectionName>
+			<WithSectionName name="audience">
+				<AnimatedSection>
+					<Audience />
+				</AnimatedSection>
+			</WithSectionName>
+			<WithSectionName name="premium">
+				<AnimatedSection>
+					<Premium />
+				</AnimatedSection>
+			</WithSectionName>
+			<WithSectionName name="gallery">
+				<AnimatedSection>
+					<Gallery />
+				</AnimatedSection>
+			</WithSectionName>
+			<WithSectionName name="cta">
+				<AnimatedSection>
+					<CallToAction />
+				</AnimatedSection>
+			</WithSectionName>
+			<WithSectionName name="footer">
+				<Footer />
+			</WithSectionName>
 		</main>
 	);
 }

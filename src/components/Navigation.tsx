@@ -1,88 +1,81 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useAtomValue } from "jotai";
 import { useEffect, useRef, useState } from "react";
+import { currentSectionAtom } from "../states/cursection";
 
 type NavItem = {
 	href: string;
 	label: string;
 };
 
-const ITEMS: NavItem[] = [
+type SectionConfig = {
+	navBg: string;
+	labelText: string;
+	dotBg: string;
+	dotHover: string;
+};
+
+const sections: NavItem[] = [
 	{ href: "#services", label: "Services" },
 	{ href: "#occasions", label: "Occasions" },
 	{ href: "#gallery", label: "Gallery" },
 	{ href: "#footer", label: "Contact" },
 ];
 
-type SectionColor =
-	| "hero"
-	| "services"
-	| "audience"
-	| "premium"
-	| "gallery"
-	| "cta"
-	| "footer";
-
-const SECTION_COLORS: Record<
-	SectionColor,
-	{ navBg: string; labelText: string; dotBg: string; dotHover: string }
-> = {
+const sectionStyles: Record<string, SectionConfig> = {
 	hero: {
 		navBg: "bg-white/10",
-		labelText: "text-white",
+		labelText: "text-black",
 		dotBg: "bg-white",
 		dotHover: "bg-white/90",
 	},
 	services: {
 		navBg: "bg-white/20",
-		labelText: "text-slushup-text",
-		dotBg: "bg-black",
+		labelText: "text-black",
+		dotBg: "bg-slushup-green",
 		dotHover: "bg-black/80",
 	},
 	audience: {
 		navBg: "bg-white/20",
-		labelText: "text-slushup-text",
-		dotBg: "bg-black",
+		labelText: "text-black",
+		dotBg: "bg-slushup-green",
 		dotHover: "bg-black/80",
 	},
 	premium: {
 		navBg: "bg-slushup-cream/30",
-		labelText: "text-slushup-text",
-		dotBg: "bg-white",
-		dotHover: "bg-white/90",
+		labelText: "text-black",
+		dotBg: "bg-slushup-green",
+		dotHover: "bg-black/80",
 	},
 	gallery: {
 		navBg: "bg-white/20",
-		labelText: "text-slushup-text",
-		dotBg: "bg-black",
+		labelText: "text-black",
+		dotBg: "bg-slushup-green",
 		dotHover: "bg-black/80",
 	},
 	cta: {
 		navBg: "bg-white/20",
-		labelText: "text-white",
-		dotBg: "bg-black",
+		labelText: "text-black",
+		dotBg: "bg-slushup-green",
 		dotHover: "bg-black/80",
 	},
 	footer: {
 		navBg: "bg-white/10",
-		labelText: "text-white",
+		labelText: "text-black",
 		dotBg: "bg-white",
 		dotHover: "bg-white/90",
 	},
 };
 
 export function Navigation() {
-	const containerRef = useRef<HTMLElement | null>(null);
+	const ref = useRef<HTMLElement | null>(null);
 	const [expanded, setExpanded] = useState(false);
-	const [currentSection, setCurrentSection] = useState<SectionColor>("hero");
 
-	/**
-	 * Handle mobile viewport height changes (URL bar show/hide)
-	 */
+	const currentSection = useAtomValue(currentSectionAtom);
+	const styles = sectionStyles[currentSection] ?? sectionStyles.hero;
+
 	const y = useMotionValue(0);
-	const ySpring = useSpring(y, {
-		stiffness: 300,
-		damping: 40,
-	});
+	const ySpring = useSpring(y, { stiffness: 300, damping: 40 });
 
 	useEffect(() => {
 		const update = () => {
@@ -100,49 +93,9 @@ export function Navigation() {
 		};
 	}, [y]);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const sections: Array<{ id: SectionColor; selector: string }> = [
-				{ id: "hero", selector: "section:nth-of-type(1)" },
-				{ id: "services", selector: "#services" },
-				{ id: "audience", selector: "#occasions" },
-				{ id: "premium", selector: "section:nth-of-type(5)" },
-				{ id: "gallery", selector: "#gallery" },
-				{ id: "cta", selector: "section:nth-of-type(7)" },
-				{ id: "footer", selector: "footer" },
-			];
-
-			const scrollY = window.scrollY;
-			const viewportHeight = window.innerHeight;
-
-			for (const section of sections) {
-				const element = document.querySelector(section.selector);
-				if (!element) continue;
-
-				const rect = element.getBoundingClientRect();
-				const elementTop = rect.top + scrollY;
-				const elementBottom = elementTop + rect.height;
-
-				// Check if section is in viewport (with some margin)
-				if (
-					scrollY + viewportHeight * 0.3 >= elementTop &&
-					scrollY <= elementBottom
-				) {
-					setCurrentSection(section.id);
-					break;
-				}
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
-	const colors = SECTION_COLORS[currentSection];
-
 	return (
 		<motion.nav
-			ref={containerRef}
+			ref={ref}
 			aria-label="Section navigation"
 			style={{ top: ySpring }}
 			className="fixed right-4 z-30 -translate-y-1/2"
@@ -151,23 +104,22 @@ export function Navigation() {
 			onTouchStart={() => setExpanded(true)}
 			onFocus={() => setExpanded(true)}
 			onBlur={(e) => {
-				if (!containerRef.current?.contains(e.relatedTarget as Node)) {
+				if (!ref.current?.contains(e.relatedTarget as Node)) {
 					setExpanded(false);
 				}
 			}}
 		>
 			<motion.ul
 				layout
-				className={`flex flex-col gap-1 p-2 rounded-lg backdrop-blur-md shadow-lg transition-colors duration-300 ${colors.navBg}`}
+				className={`flex flex-col gap-1 p-2 rounded-lg backdrop-blur-md shadow-lg transition-colors duration-300 ${styles.navBg}`}
 			>
-				{ITEMS.map((item) => (
+				{sections.map((item) => (
 					<li key={item.href}>
 						<motion.a
 							href={item.href}
 							layout
 							className="relative flex items-center justify-end h-7 focus:outline-none"
 						>
-							{/* Drawer + Label */}
 							<motion.div
 								aria-hidden
 								initial={false}
@@ -176,18 +128,15 @@ export function Navigation() {
 									x: expanded ? -10 : -4,
 								}}
 								transition={{ duration: 0.2 }}
-								className={`absolute right-5 flex items-center h-7 px-3 rounded-md bg-white/90 shadow-sm pointer-events-none transition-colors duration-300`}
+								className="absolute right-5 flex items-center h-7 px-3 rounded-md bg-white/90 shadow-sm pointer-events-none"
 							>
-								<span
-									className={`text-sm font-medium ${colors.labelText} whitespace-nowrap`}
-								>
+								<span className={`text-sm font-medium ${styles.labelText}`}>
 									{item.label}
 								</span>
 							</motion.div>
 
-							{/* Dot - Dynamic color based on section */}
 							<motion.span
-								className={`relative z-10 w-3 h-3 rounded-full transition focus:ring-2 cursor-pointer ${colors.dotBg} ${colors.dotBg === "bg-white" ? "focus:ring-white" : "focus:ring-black"}`}
+								className={`relative z-10 w-3 h-3 rounded-full cursor-pointer ${styles.dotBg}`}
 								whileHover={{ scale: 1.2 }}
 								whileTap={{ scale: 0.95 }}
 							>
