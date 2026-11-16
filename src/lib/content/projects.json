@@ -1,0 +1,245 @@
+[
+  {
+    "slug": "go-web-framework",
+    "name": "Go Web Framework",
+    "category": "Full-stack & distributed systems",
+    "group": "Applications",
+    "summary": "One platform. Independent tenants. Connected experiences.",
+    "overview": "A self-hosted, multi-tenant platform combining a React application with Go services, real-time communication, and independent tenant databases.",
+    "problem": "Bring content, commerce, and community tools into one application while keeping each tenant’s data and configuration separate.",
+    "architecture": "React and Jotai manage the interface; Go HTTP and WebSocket services coordinate application features. PostgreSQL stores each tenant’s data, Redis provides tenant-namespaced caching, and Nginx routes domains to the right instance.",
+    "technologies": ["Go", "React", "TypeScript", "PostgreSQL", "Redis", "Docker"],
+    "highlights": [
+      "Optional WebSocket rerouting for supported REST endpoints preserves HTTP authorization and response boundaries.",
+      "Server-injected metadata and a dynamic sitemap support search-friendly public pages.",
+      "The grengo CLI manages tenant lifecycle, backend scaling, and generated proxy configuration."
+    ],
+    "considerations": "Tenant boundaries, permission propagation, and transport behavior are explicit architectural concerns. The CLI and Docker Compose have distinct orchestration responsibilities.",
+    "repo": "renniemaharaj/go-web-framework",
+    "status": "Self-hosted platform",
+    "license": "MIT",
+    "ownership": "Personal project",
+    "flow": ["React + Jotai", "Go services", "PostgreSQL + Redis"],
+    "media": [
+      {
+        "src": "/projects/framework-builder.webp",
+        "alt": "Go Web Framework visual page builder with inline editing controls",
+        "caption": "The visual page builder, captured with synthetic demo content and custom branding."
+      },
+      {
+        "src": "/projects/framework-forums.webp",
+        "alt": "Go Web Framework community forum with categories and discussions",
+        "caption": "Forums and community features in the same multi-tenant application."
+      }
+    ],
+    "docs": [
+      {
+        "label": "Architecture & setup",
+        "url": "https://github.com/renniemaharaj/go-web-framework#container-orchestration--gateway"
+      }
+    ],
+    "accent": "sage"
+  },
+  {
+    "slug": "aircon",
+    "name": "Aircon",
+    "category": "Networking, cryptography & systems",
+    "group": "Systems",
+    "summary": "Nearby devices. A shared engine. No central account.",
+    "overview": "An experimental local networking platform connecting Android and Linux devices over Wi-Fi and Wi-Fi Direct, with a shared Go engine for identity, approval, and encrypted communication.",
+    "problem": "Let nearby devices communicate, share files, and coordinate without requiring an internet connection or a central account.",
+    "architecture": "Android platform adapters and Linux commands use the same Go engine. Direct transports handle messaging and device services; permission-controlled file references can use experimental multi-hop routing.",
+    "technologies": ["Go", "Android", "Linux", "Wi-Fi Direct", "Cryptography"],
+    "highlights": [
+      "Paired encrypted messaging and approved temporary guest conversations.",
+      "Device discovery, permission-controlled file sharing, and verified downloads.",
+      "Go and Python SDKs expose the local platform to other applications."
+    ],
+    "considerations": "Aircon is experimental and its protocol has no independent security audit. Multi-hop routing serves files, not chat. Community hosts can read group messages; that trust boundary is documented.",
+    "repo": "renniemaharaj/aircon",
+    "status": "Experimental",
+    "license": "MIT",
+    "ownership": "Personal project",
+    "flow": ["Android / Linux", "Shared Go engine", "Direct local transport"],
+    "media": [
+      {
+        "src": "/projects/aircon-messaging.webp",
+        "alt": "Aircon Android application showing encrypted guest messaging",
+        "caption": "Earlier Android hardware capture of guest messaging; the current interface may differ."
+      },
+      {
+        "src": "/projects/aircon-communities.webp",
+        "alt": "Aircon Android community creation with an optional expiry",
+        "caption": "Earlier Android capture of community creation. Source images are documented in the repository."
+      }
+    ],
+    "docs": [
+      {
+        "label": "Network design & trust",
+        "url": "https://github.com/renniemaharaj/aircon/blob/main/docs/README.md"
+      },
+      {
+        "label": "Image sources",
+        "url": "https://github.com/renniemaharaj/aircon/blob/main/docs/images/README.md"
+      }
+    ],
+    "accent": "mint"
+  },
+  {
+    "slug": "chronicle",
+    "name": "Chronicle",
+    "category": "Artificial intelligence & data engineering",
+    "group": "Applications",
+    "summary": "Research the evidence. Reconstruct the story.",
+    "overview": "A local academic research workspace that investigates subjects and builds source-backed timelines, relationships, maps, and narrated stories.",
+    "problem": "Turn scattered historical sources into an explorable account while keeping the underlying evidence, uncertainty, and gaps available for inspection.",
+    "architecture": "A Go backend and TypeScript web interface coordinate research with configured AI models and MCP search/retrieval tools. Source passages inform chronological records, connected graph views, and geographic story playback.",
+    "technologies": ["Go", "Svelte", "TypeScript", "MCP", "Leaflet"],
+    "highlights": [
+      "Research planning, source retrieval, and inspectable supporting passages.",
+      "Linked timeline, graph, map, and story views share the selected event.",
+      "Narrated playback follows recorded places; projects can be annotated, imported, and exported."
+    ],
+    "considerations": "The system preserves competing claims, uncertain dates, and coverage gaps. Representative map points and modern basemaps are not reconstructions of historical borders.",
+    "repo": "renniemaharaj/chronicle",
+    "status": "Research workspace",
+    "license": "MIT",
+    "ownership": "Personal project",
+    "flow": ["Sources + models", "Research records", "Graph / map / story"],
+    "media": [
+      {
+        "src": "/projects/chronicle-map.webp",
+        "alt": "Chronicle story mode showing Rome on a map alongside chapter navigation, source-backed narrative, and historical events",
+        "caption": "Rome in Story mode. Original Chronicle interface capture. Map data © OpenStreetMap contributors."
+      },
+      {
+        "src": "/projects/chronicle-colosseum.webp",
+        "alt": "Chronicle story mode at the opening of the Colosseum, with map, narrative, and event cards",
+        "caption": "Narrative, recorded places, and nearby events stay connected. Map data © OpenStreetMap contributors."
+      }
+    ],
+    "docs": [
+      {
+        "label": "Research standards",
+        "url": "https://github.com/renniemaharaj/chronicle/blob/main/docs/research-standards.md"
+      },
+      {
+        "label": "Media credits",
+        "url": "https://github.com/renniemaharaj/chronicle/blob/main/docs/assets.md"
+      }
+    ],
+    "accent": "stone"
+  },
+  {
+    "slug": "go-api-kit",
+    "name": "Go API Kit",
+    "category": "Backend engineering & framework design",
+    "group": "Systems",
+    "summary": "Less ceremony between an idea and an HTTP service.",
+    "overview": "A small Go HTTP toolkit built around standard net/http interfaces, with direct handler registration, middleware, JSON helpers, and optional frontend file serving.",
+    "problem": "Make a useful HTTP application straightforward to start, without forcing repository layers, service interfaces, or caching into every project.",
+    "architecture": "The kit package owns routing, middleware, HTTP helpers, and safe file serving. The v8 package composes startup, health checks, and optional frontend files. A separate data package provides opt-in loading-function caching.",
+    "technologies": ["Go", "net/http", "Middleware", "JWT", "Static serving"],
+    "highlights": [
+      "Standard http.Handler interoperability and direct endpoint registration.",
+      "Environment-driven deadlines, rate limiting, CORS, and optional authentication.",
+      "Run a built React or Vite frontend from a minimal standalone Go server; explicit API routes retain priority."
+    ],
+    "considerations": "Configure routes and middleware before serving. Applications own storage writes and cache invalidation; zero cache TTL disables caching rather than making it permanent.",
+    "repo": "renniemaharaj/go-api-kit",
+    "status": "Reusable toolkit",
+    "license": "MIT",
+    "ownership": "Personal project",
+    "flow": ["HTTP request", "Router + middleware", "Handler / frontend"],
+    "media": [],
+    "docs": [
+      {
+        "label": "Minimal application",
+        "url": "https://github.com/renniemaharaj/go-api-kit/blob/main/examples/minimal/main.go"
+      },
+      {
+        "label": "Middleware guide",
+        "url": "https://github.com/renniemaharaj/go-api-kit/blob/main/docs/middleware.md"
+      }
+    ],
+    "accent": "sage"
+  },
+  {
+    "slug": "frappe-docker",
+    "name": "Frappe Docker",
+    "category": "DevOps & enterprise infrastructure",
+    "group": "Infrastructure",
+    "summary": "A repeatable foundation for enterprise applications.",
+    "overview": "An unofficial Docker Compose environment for Frappe and ERPNext development, with configurable applications, site provisioning, persistent storage, and Go or shell entrypoints.",
+    "problem": "Keep a configurable development environment repeatable while allowing direct access to application code, service configuration, and site-specific app requirements.",
+    "architecture": "Docker Compose coordinates Frappe, MariaDB, and Redis. An entrypoint reads instance.json to create missing sites, align installed applications, and migrate them. Bind-mounted workspaces preserve direct local editing.",
+    "technologies": ["Docker Compose", "Frappe", "ERPNext", "Go", "MariaDB", "Redis"],
+    "highlights": [
+      "Sites and required applications are aligned from an explicit instance configuration.",
+      "Go and shell implementations support different automation needs.",
+      "Persistent bind mounts retain workspace changes across container lifecycles."
+    ],
+    "considerations": "This is an independent development environment, not the official Frappe Docker project. The Go implementation applies instance.json but does not update that file itself. Destructive site removal is an explicit configuration option.",
+    "repo": "renniemaharaj/frappe",
+    "status": "Development infrastructure",
+    "license": "MIT",
+    "ownership": "Personal project",
+    "flow": ["instance.json", "Go / shell entrypoint", "Frappe + MariaDB + Redis"],
+    "media": [],
+    "docs": [
+      {
+        "label": "Environment & configuration",
+        "url": "https://github.com/renniemaharaj/frappe#configuration"
+      }
+    ],
+    "accent": "mint"
+  },
+  {
+    "slug": "jvms",
+    "name": "JVMS",
+    "category": "Open source & developer tooling",
+    "group": "Systems",
+    "summary": "Contributing to a better Java development workflow.",
+    "overview": "Contributions to the upstream JVMS Java version manager, spanning platform/provider architecture, provider streaming, concurrency, caching, and terminal interface work.",
+    "problem": "Help an existing Java version manager support broader provider choices and a more dependable, usable developer workflow.",
+    "architecture": "The upstream application separates platform concerns and JDK providers, with version discovery and download workflows exposed through command-line and terminal interfaces. My work is tracked through public pull requests.",
+    "technologies": ["Go", "Java tooling", "Concurrency", "Caching", "Terminal UI"],
+    "highlights": [
+      "Platform and provider architecture contributions.",
+      "JDK provider streaming and related concurrency/cache fixes.",
+      "Terminal UI work documented in the upstream pull-request history."
+    ],
+    "considerations": "JVMS is maintained upstream by ystyle and its contributors. This case study describes my contributions; I do not claim ownership or sole authorship of the project. Consult each linked pull request for its current review and merge status.",
+    "repo": "ystyle/jvms",
+    "status": "Upstream contributions",
+    "license": "MIT",
+    "ownership": "Contributor",
+    "flow": ["JDK providers", "Version manager", "CLI + terminal UI"],
+    "media": [
+      {
+        "src": "/projects/jvms-tui.webp",
+        "alt": "JVMS terminal interface showing an interactive JDK version picker",
+        "caption": "My terminal UI contribution, captured for upstream pull request #75."
+      }
+    ],
+    "docs": [
+      {
+        "label": "#75 · Terminal UI & version caching",
+        "url": "https://github.com/ystyle/jvms/pull/75"
+      },
+      {
+        "label": "#76 · Cache invalidation race fix",
+        "url": "https://github.com/ystyle/jvms/pull/76"
+      },
+      {
+        "label": "#77 · Provider standardization & streaming",
+        "url": "https://github.com/ystyle/jvms/pull/77"
+      },
+      {
+        "label": "#78 · Platform/provider architecture",
+        "url": "https://github.com/ystyle/jvms/pull/78"
+      }
+    ],
+    "accent": "stone"
+  }
+]

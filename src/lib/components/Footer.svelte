@@ -1,120 +1,125 @@
 <script lang="ts">
-  import { ArrowUpRight } from '@lucide/svelte';
-  import SocialIcon from './SocialIcon.svelte';
+  import Linkedin from '#lib/components/LinkedinIcon.svelte';
+  import Github from '#lib/components/GithubIcon.svelte';
+  import { ArrowUpRight, Mail, Phone } from '@lucide/svelte';
+  import { profile, navigation } from '#lib/content/profile.ts';
   import Brand from './Brand.svelte';
-  import { cookiePreferencesOpen } from '#lib/consent/preferences.ts';
-  import { business, navigation } from '#lib/content/business.ts';
-  const year = new Date().getFullYear();
 </script>
 
-<footer id="footer" class="dark">
+<footer id="contact" class="dark">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <Brand />
-        <p>Premium frozen treats and beverage experiences, crafted for unforgettable events.</p>
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Let’s make something work.</p>
+        <h2>Have a project<br /><span class="serif">in mind?</span></h2>
       </div>
+      <div class="contact-copy">
+        <p>
+          Whether you need a custom application, a system integration, infrastructure assistance, or
+          support implementing open-source software, get in touch to discuss your requirements.
+        </p>
+        <a href={`mailto:${profile.email}`} class="email-link"
+          >{profile.email}<ArrowUpRight size={26} aria-hidden="true" /></a
+        ><a class="telephone" href={`tel:${profile.telephone}`}
+          ><Phone size={17} aria-hidden="true" />{profile.telephoneDisplay}</a
+        >
+      </div>
+    </div>
+    <div class="footer-middle">
+      <Brand />
       <nav aria-label="Footer navigation">
         {#each navigation as item}<a href={item.href}>{item.label}</a>{/each}
       </nav>
-      <div class="footer-contact">
-        <span>Let's celebrate</span>
-        <a href={business.whatsapp}
-          >+1 (868) 784-7976 <ArrowUpRight size={15} aria-hidden="true" /></a
+      <div class="social-links">
+        <a href={profile.github} aria-label="Rennie Maharaj on GitHub"
+          ><Github size={20} aria-hidden="true" /></a
+        ><a href={profile.linkedin} aria-label="Rennie Maharaj on LinkedIn"
+          ><Linkedin size={20} aria-hidden="true" /></a
+        ><a href={`mailto:${profile.email}`} aria-label="Email Rennie Maharaj"
+          ><Mail size={20} aria-hidden="true" /></a
         >
-        <div class="social-links">
-          <a
-            href={business.instagram}
-            aria-label="SlushUp on Instagram"
-            target="_blank"
-            rel="noopener noreferrer"><SocialIcon name="instagram" /></a
-          >
-          <a
-            href={business.facebook}
-            aria-label="SlushUp on Facebook"
-            target="_blank"
-            rel="noopener noreferrer"><SocialIcon name="facebook" /></a
-          >
-        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© {year} SlushUp Frozen Treats &amp; Beverages. All rights reserved.</p>
-      <div class="policy-links">
-        <a href="/privacy-policy/">Privacy Policy</a>
-        <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
-        <a href="/cookie-policy/">Cookie Policy</a>
-        <button class="cookie-settings" onclick={() => cookiePreferencesOpen.set(true)}
-          >Cookie preferences</button
-        >
-      </div>
-      <a href="/#hero">Back to the good times <span aria-hidden="true">↑</span></a>
+      <p>© {new Date().getFullYear()} Rennie Maharaj · TheWriterCo</p>
+      <p>Made with care in Trinidad &amp; Tobago.</p>
+      <a href="/credits/">Sources &amp; credits</a>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    padding-top: 4rem;
-    background: var(--forest-deep);
+    padding-block: clamp(4rem, 7vw, 7rem) 1.5rem;
+    border-radius: 2.5rem 2.5rem 0 0;
   }
 
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr 0.8fr;
-    gap: 4rem;
-    padding-bottom: 3rem;
-  }
-
-  .footer-brand > p {
-    max-width: 270px;
-    margin-top: 1rem;
-    color: var(--on-dark);
-    font-size: var(--text-small);
-  }
-
-  nav {
+  .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-content: start;
-    gap: 0.35rem 2rem;
-    padding-top: 0.3rem;
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+    padding-bottom: 4rem;
   }
 
-  nav a {
-    width: max-content;
-    padding-block: 0.45rem;
-    font-size: var(--text-small);
-    transition: color var(--fast);
+  h2 {
+    font-size: clamp(3rem, 5.7vw, 5.5rem);
+    font-weight: 500;
   }
 
-  nav a:hover {
+  .contact-copy > p {
+    max-width: 510px;
+    color: var(--on-dark);
+  }
+
+  .email-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.3rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--line-dark);
+    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+  }
+
+  .email-link :global(svg) {
+    flex-shrink: 0;
     color: var(--lime);
   }
 
-  .footer-contact {
-    padding-top: 0.3rem;
-  }
-
-  .footer-contact > span {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--on-dark);
+  .telephone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
     font-size: var(--text-small);
-    letter-spacing: 0;
+    color: var(--on-dark);
   }
 
-  .footer-contact > a {
+  .footer-middle {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 2rem;
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--on-dark);
     font-size: var(--text-small);
   }
 
   .social-links {
     display: flex;
     gap: 0.6rem;
-    margin-top: 1rem;
   }
 
   .social-links a {
@@ -122,7 +127,6 @@
     place-items: center;
     width: 44px;
     height: 44px;
-    background: var(--glass);
     border: 1px solid var(--line-dark);
     border-radius: 50%;
     transition:
@@ -135,88 +139,31 @@
     background: var(--lime);
   }
 
-  .cookie-settings {
-    padding: 0;
-    color: inherit;
-    border: 0;
-    background: transparent;
-    font-size: inherit;
-    text-align: left;
-  }
-
-  .cookie-settings:hover {
-    color: var(--lime);
-  }
-
-  .policy-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-  }
-
   .footer-bottom {
+    display: flex;
     flex-wrap: wrap;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    padding-block: 1.5rem;
+    gap: 0.6rem 1rem;
+    padding-top: 1.4rem;
     color: var(--on-dark);
-    border-top: 1px solid var(--line-dark);
-    font-size: var(--text-small);
+    font-size: 0.7rem;
   }
 
-  .footer-bottom a {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-bottom span {
-    color: var(--lime);
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 900px) {
-    .footer-top {
-      grid-template-columns: 1fr 1fr;
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
       gap: 2rem;
+      padding-bottom: 3rem;
     }
 
-    .footer-brand {
-      grid-column: span 2;
-    }
-
-    .footer-brand > p {
-      max-width: 380px;
-    }
-  }
-
-  @media (max-width: 540px) {
-    .footer-top {
-      gap: 2rem 1rem;
+    .footer-middle {
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
     nav {
-      gap: 0.3rem 1rem;
-    }
-
-    .footer-contact > a {
-      font-size: var(--text-small);
-      gap: 0.3rem;
-    }
-
-    .policy-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-    }
-
-    .footer-bottom {
-      flex-wrap: wrap;
-      align-items: start;
-      flex-direction: column;
-      font-size: var(--text-small);
+      width: 100%;
+      order: 3;
     }
   }
 </style>

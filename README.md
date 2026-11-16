@@ -1,51 +1,62 @@
-# SlushUp
+# Rennie Maharaj · TheWriterCo
 
-Premium mobile bar, cocktails, mocktails, and frozen treats. A prerendered SvelteKit 3 website using Svelte 5 runes, strict TypeScript, and scoped CSS. No React or Tailwind.
+Personal engineering portfolio and consulting website for [thewriterco.com](https://thewriterco.com), built with SvelteKit 3, Svelte 5, TypeScript, scoped CSS, and the original client application's local Manrope font, rounded navigation, buttons, and GSAP/Lenis motion infrastructure.
 
-## Develop
+## Branches
 
-Use Node 24 LTS and npm.
+`feat/rennie-personal-website` starts at the client design overhaul, `c24ed65`. The original client implementation remains on `main`; the personal portfolio changes are isolated to the feature branch. The older React implementation remains in Git history and its existing backup branch. The two older TheWriterCo React editor checkouts were not modified.
+
+## Develop & verify
+
+Use Node 24 LTS (minimum supported Node 22.18) and npm.
 
 ```sh
 npm ci
 npm run dev
-```
-
-## Verify and build
-
-```sh
 npm run check
 npm test
+npm run format:check
 npm run build
 npm run test:e2e
 ```
 
-Playwright uses `/usr/bin/chromium` by default. Set `PLAYWRIGHT_CHROMIUM_PATH` to another installed Chromium binary when necessary. To use Playwright's downloaded browser, set that variable to its executable path. Visual regression baselines cover 390, 768 and 1440 pixels; functional checks cover 360 through 1920 pixels.
+Playwright starts a fresh production preview at `127.0.0.1:4181`. It uses `/usr/bin/chromium`; override `PLAYWRIGHT_CHROMIUM_PATH` if needed. Avoid starting a separate server on that test port. `build/` contains the independently deployable static site, including all six case-study routes and the credits page. Hosting does not require Node or GitHub credentials.
+
+## Content
+
+- `src/lib/content/profile.ts`: identity, contact details, navigation.
+- `src/lib/content/projects.json`: independently editable case studies and media references.
+- `src/lib/content/projects.ts`: typed project schema and additional repositories.
+- `src/lib/content/services.ts`: services and engineering capabilities.
+- `src/lib/content/github-cache.json`: checked-in public GitHub reference snapshot; imported on the server only.
+- `src/lib/components/`: shared presentation, layout, and interaction components.
+- `src/routes/projects/[slug]/`: reusable, prerendered project detail pages.
+- `public/projects/`: optimized original interface captures, portrait, and retained license notices.
+- `docs/RESEARCH.md`: source evidence, media provenance, license and ownership distinctions.
+
+Contact uses mailto and tel links. The phone is +1 (868) 579-9523; email is rvesprey@gmail.com. There is no Instagram link, contact-processing endpoint, tracker, or analytics script.
+
+## Refresh GitHub references
 
 ```sh
-npm run preview -- --port 4174
-npm run audit:performance
-node scripts/capture.mjs
+npm run sync:github
 ```
 
-`build/` is the deployable static website. No Node server, database, credentials, or form-processing backend is required. Booking goes directly to the existing Google Form; contact uses the existing WhatsApp number.
+This deliberately refreshes public metadata, README text, and normalized README image candidates. It supports relative Markdown images, HTML image tags, reference-style images, GitHub blob URLs, user attachments, SVGs, GIFs, and external HTTPS sources. No API call occurs on a page view or ordinary build. Partial failures retain per-repository cached content, and snapshot writes are atomic. Per-repository retrieval dates remain available when only some references refresh.
 
-Run `npm run release` to check types, run unit tests, build, run browser checks, and package the verified output as `artifacts/slushup-staging.tar.gz` with a SHA-256 checksum. JavaScript and CSS are minified, and responsive images use AVIF with a WebP fallback. Cloudflare Pages handles response compression; the build does not generate `.br` or `.gz` copies. Original public media URLs remain available.
+`GITHUB_TOKEN` is optional and used only by the local synchronization process; no token is written into the snapshot or sent to the browser. The sync never changes presentation copy or downloads newly discovered media automatically. Review documentation and media rights, then deliberately update `projects.json` and the published assets. Do not treat a code license as blanket permission for third-party imagery.
 
-## Repository
+## Screenshots & performance
 
-- `src/routes/`: prerendered page, document metadata and layout.
-- `src/lib/components/`: page sections and shared UI.
-- `src/lib/content/`: verified business destinations, service/occasion copy, gallery and media inventory.
-- `src/lib/styles/`: CSS tokens, typography, shared layout and accessibility defaults.
-- `src/lib/motion/`: lazy Embla action and scoped GSAP/Lenis lifecycle.
-- `src/lib/assets/`: local sources processed by enhanced-img.
-- `public/`: original media URLs, local licensed font, SEO files and video.
-- `tests/`: migration contracts, browser interactions, axe checks and visual baselines.
-- `scripts/`: repeatable screenshots, performance audits and staging packaging.
-- `docs/`: migration audit, architecture, deployment and before/after evidence.
-- `deploy/`: Nginx configuration.
+```sh
+npm run preview -- --port 4181
+# In a second terminal:
+node scripts/capture.mjs
+npm run audit:performance
+```
 
-See [architecture](docs/ARCHITECTURE.md), [migration audit](docs/MIGRATION.md), [quality report](docs/QA.md) and [deployment/rollback](docs/DEPLOYMENT.md).
+Screenshots and synthetic Lighthouse reports are ignored under `artifacts/`. Local Lighthouse scores are diagnostics, not real-user performance claims. The mobile and reduced-motion experiences skip GSAP and Lenis. All meaningful content and native service disclosure controls remain usable without JavaScript.
 
-The original React application is preserved at Git commit `9ba57e9` and branch `backup/react-before-svelte-2026-11-15`. The migration has not changed the live production website.
+## Deployment
+
+See [deployment and rollback](docs/DEPLOYMENT.md), [architecture](docs/ARCHITECTURE.md), and [verification](docs/QA.md). `npm run stage` packages `build/` as `artifacts/thewriterco-staging.tar.gz` with a SHA-256 checksum. The Sites manifest is separate from the custom-domain hosting configuration. Publishing the private review site does not change the existing thewriterco.com DNS or hosting.

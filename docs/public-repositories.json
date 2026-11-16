@@ -1,0 +1,362 @@
+[
+  {
+    "name": "go-api-kit",
+    "description": "go-api-kit is a small, ergonomic HTTP handler library for Go. It uses chi internally for routing while keeping its public API compatible with net/http.",
+    "url": "https://github.com/renniemaharaj/go-api-kit",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "renniemaharaj",
+    "description": "I build practical software across web applications, backend services, developer tools, and enterprise integrations. My work focuses on maintainable architecture, efficient tooling, and systems that are straightforward to operate.",
+    "url": "https://github.com/renniemaharaj/renniemaharaj",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "go-web-framework",
+    "description": "Go Web Framework is a high-performance, multi-tenant platform powered by Go. Its React frontend uses atomic Jotai state, real-time synchronization, and server-injected SEO to combine fast navigation with search-friendly public pages.",
+    "url": "https://github.com/renniemaharaj/go-web-framework",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "kjv-bible",
+    "description": "This repository contains the 66 books of the King James Version (KJV) Bible as chapter-and-verse JSON objects. It is intended to be a transparent, machine-readable source whose exact contents can be audited and fingerprinted. The website below provides an interface for reading and a free api",
+    "url": "https://github.com/renniemaharaj/kjv-bible",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "chronicle",
+    "description": "Chronicle is a local academic research workspace that automatically investigates a subject's documented history and rebuilds its story with sources you can inspect. Built for students, educators, researchers, and curious minds.",
+    "url": "https://github.com/renniemaharaj/chronicle",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "aircon",
+    "description": "Personal encrypted local networks for teams, groups and communities. Aircon connects nearby Android and Linux devices over Wi-Fi, including Wi-Fi Direct, without internet, Bluetooth or central accounts. Both platforms use the same Go engine for identity, approval and encryption.",
+    "url": "https://github.com/renniemaharaj/aircon",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "frappe",
+    "description": "Frappe, unofficial docker compose project for fast, highly customizable development  and persistence through mounts.",
+    "url": "https://github.com/renniemaharaj/frappe",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "windowsvm",
+    "description": "AI-Integrated Windows Virtual Machine. QEMU/KVM launcher for a Windows 11 guest on Linux. ",
+    "url": "https://github.com/renniemaharaj/windowsvm",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "hrtmpay-documentation",
+    "description": "HrtmPay documentation",
+    "url": "https://github.com/renniemaharaj/hrtmpay-documentation",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "Anti-LagMachine",
+    "description": "Minecraft Monitor Redstone Plugin",
+    "url": "https://github.com/renniemaharaj/Anti-LagMachine",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "batsig",
+    "description": "A simple battery signal notifier based on lib notify and upower written in go. batsig polls upower for battery percentage and sends notifications through libnotify. Alerts are stored in the XDG config directory as batsig/alerts ($XDG_CONFIG_HOME/batsig/alerts or ~/.config/batsig/alerts), with files named by percentage threshold and the content.",
+    "url": "https://github.com/renniemaharaj/batsig",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "sitemap",
+    "description": "thewriterco sitemap",
+    "url": "https://github.com/renniemaharaj/sitemap",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "slushup",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/slushup",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "llama-docker",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/llama-docker",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "gtk-window",
+    "description": "A minimal Go wrapper around gotk3/gtk that simplifies GTK window initialization and management.",
+    "url": "https://github.com/renniemaharaj/gtk-window",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "thewriterco",
+    "description": "The Writer Company Front End implemented in React + Typescript",
+    "url": "https://github.com/renniemaharaj/thewriterco",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "superset",
+    "description": "Apache Superset is a Data Visualization and Data Exploration Platform",
+    "url": "https://github.com/renniemaharaj/superset",
+    "fork": true,
+    "archived": false,
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "goctx",
+    "description": "GoCtx is a local orchestrator designed to bridge development environments with AI agents. It provides a GTK-based dashboard to manage project context and safely apply AI-generated code patches.",
+    "url": "https://github.com/renniemaharaj/goctx",
+    "fork": false,
+    "archived": false,
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "mouse-fix",
+    "description": "A Linux mouse event interceptor that filters out ghost clicks and provides debounce functionality for old and breaking mouses",
+    "url": "https://github.com/renniemaharaj/mouse-fix",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "google-gemini-pool",
+    "description": "This package provides a concurrent-safe API key pooling mechanism for managing multiple Google Gemini AI API keys efficiently. It ensures fair usage and prevents exceeding rate limits by distributing requests across multiple keys.",
+    "url": "https://github.com/renniemaharaj/google-gemini-pool",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "wavlink-fedora",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/wavlink-fedora",
+    "fork": true,
+    "archived": false,
+    "license": "GPL-3.0"
+  },
+  {
+    "name": "kvm_intel-manager",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/kvm_intel-manager",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "qemu-distros",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/qemu-distros",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "superset-docker",
+    "description": "This deployment is built on a Python Docker base image, following Superset's official bare-bones Python installation guide. Superset and its dependencies are installed within this container.",
+    "url": "https://github.com/renniemaharaj/superset-docker",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "project-list-react",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/project-list-react",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "project-list-go",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/project-list-go",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "goftw",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/goftw",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "gftw-react",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/gftw-react",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "grouplogs",
+    "description": "A lightweight, thread-safe Go logging package with support for structured log entries, real-time subscriptions via channels, and a grouping mechanism for broadcasting logs from multiple sources. Ideal for building reactive systems and piping logs into websockets or monitoring services.",
+    "url": "https://github.com/renniemaharaj/grouplogs",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "conveyor",
+    "description": "Conveyor is a dynamic worker pool manager for Go that efficiently processes queued jobs. It automatically scales the number of active workers based on queue load, making it ideal for fluctuating workloads.",
+    "url": "https://github.com/renniemaharaj/conveyor",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "seek-tune",
+    "description": "An implementation of Shazam's song recognition algorithm.",
+    "url": "https://github.com/renniemaharaj/seek-tune",
+    "fork": true,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "fullstack-docs",
+    "description": "Fullstack Docs is a true full-stack documentation designed for publishing documents , events tracking, and scalable deployment.",
+    "url": "https://github.com/renniemaharaj/fullstack-docs",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "news-go",
+    "description": "News-Go is a lightweight Go-based pipeline for scraping, analyzing, and evaluating news articles through a biblical and AI-augmented lens. It uses concurrent Go routines to fetch and process online news, while a local large language model (LLM) scores the content against a custom Christian framework.",
+    "url": "https://github.com/renniemaharaj/news-go",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "fly",
+    "description": "Veteran rank ",
+    "url": "https://github.com/renniemaharaj/fly",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "keylight",
+    "description": "Renders a 150px * 100% white overlay when using keyboard for a non-backlit keyboard solution written in go, aiming for cross-platform, but eventually",
+    "url": "https://github.com/renniemaharaj/keylight",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "go-rest-api",
+    "description": "An idiomatic Go REST API starter kit (boilerplate) following the SOLID principles and Clean Architecture",
+    "url": "https://github.com/renniemaharaj/go-rest-api",
+    "fork": true,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "go-rod-fast",
+    "description": "Go rod fast is a wrapper around rod that wraps browser creation, spoofing and tab creation",
+    "url": "https://github.com/renniemaharaj/go-rod-fast",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "thewriterco-auth-go",
+    "description": "The Writer Company Backend Implementation in Go (thewriterco-auth-go)",
+    "url": "https://github.com/renniemaharaj/thewriterco-auth-go",
+    "fork": false,
+    "archived": false,
+    "license": "MIT"
+  },
+  {
+    "name": "thewriterco-documents",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/thewriterco-documents",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "study-templates",
+    "description": null,
+    "url": "https://github.com/renniemaharaj/study-templates",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "int-deduce-go",
+    "description": "A number guessing game implementation in Go that uses binary search and logarithmic scaling to efficiently guess a number that a player is thinking of.",
+    "url": "https://github.com/renniemaharaj/int-deduce-go",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "go-web-scaffold",
+    "description": "A server side golang frontend scaffold using go templates, struct based dom manipulation, custom markup builder, tailwind css live reload & more",
+    "url": "https://github.com/renniemaharaj/go-web-scaffold",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "representer",
+    "description": "This is a simple website builder powered by gen ai models as transformers. A document is represented using go structs, programmatically manipulated then called on to transform. The marshalled doc struct is sent to a model. Document source code is returned for serving or otherwise needed.",
+    "url": "https://github.com/renniemaharaj/representer",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "Resources",
+    "description": "A repository for resources",
+    "url": "https://github.com/renniemaharaj/Resources",
+    "fork": false,
+    "archived": false,
+    "license": null
+  },
+  {
+    "name": "Stirling-PDF",
+    "description": "#1 Locally hosted web application that allows you to perform various operations on PDF files",
+    "url": "https://github.com/renniemaharaj/Stirling-PDF",
+    "fork": true,
+    "archived": false,
+    "license": "GPL-3.0"
+  }
+]

@@ -43,9 +43,9 @@ export async function initializeMotion(root: HTMLElement) {
       const clock = (seconds: number) => lenis.raf(seconds * 1000);
       gsap.ticker.add(clock);
 
-      // Keep the only scroll-driven presentation on the hero photograph.
+      // Add restrained movement without hiding unenhanced page content.
       gsap.to(root.querySelector('[data-parallax]'), {
-        yPercent: 8,
+        yPercent: 3,
         ease: 'none',
         scrollTrigger: {
           trigger: root.querySelector('#hero'),
@@ -54,6 +54,19 @@ export async function initializeMotion(root: HTMLElement) {
           scrub: true
         }
       });
+
+      for (const element of root.querySelectorAll('[data-reveal]')) {
+        gsap.from(element, {
+          y: 14,
+          duration: 0.85,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 92%',
+            once: true
+          }
+        });
+      }
 
       return () => {
         root.removeEventListener('click', releaseAnchorScroll, true);

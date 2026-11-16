@@ -3,9 +3,9 @@
   import { Menu, X, Phone, ArrowUpRight } from '@lucide/svelte';
   import Brand from './Brand.svelte';
   import Button from './Button.svelte';
-  import { business, navigation } from '#lib/content/business.ts';
+  import { profile, navigation } from '#lib/content/profile.ts';
 
-  let { solid = false }: { solid?: boolean } = $props();
+  let { solid = true }: { solid?: boolean } = $props();
   let open = $state(false);
 </script>
 
@@ -20,10 +20,11 @@
         {/each}
       </nav>
       <div class="header-actions">
-        <a href={`tel:${business.telephone}`} class="phone" aria-label="Call SlushUp">
+        <a href={`tel:${profile.telephone}`} class="phone" aria-label="Call Rennie Maharaj">
           <Phone size={17} aria-hidden="true" />
         </a>
-        <Button href={business.booking} size="small" variant="secondary">Book Now</Button>
+        <Button href={`mailto:${profile.email}`} size="small" variant="secondary">Let’s talk</Button
+        >
         <Dialog.Root bind:open>
           <Dialog.Trigger class="menu-trigger" aria-label="Open menu">
             <Menu size={23} aria-hidden="true" />
@@ -32,13 +33,15 @@
             <Dialog.Overlay class="dialog-overlay" />
             <Dialog.Content class="dialog-content mobile-menu">
               <div class="menu-top">
-                <Dialog.Title class="menu-title">A little more celebration.</Dialog.Title>
+                <Dialog.Title class="menu-title"
+                  >Thoughtful software. Practical systems.</Dialog.Title
+                >
                 <Dialog.Close class="dialog-close" aria-label="Close menu">
                   <X size={20} aria-hidden="true" />
                 </Dialog.Close>
               </div>
               <Dialog.Description class="sr-only"
-                >Explore SlushUp services and book your event.</Dialog.Description
+                >Explore my work, engineering capabilities, and consulting services.</Dialog.Description
               >
               <nav aria-label="Mobile navigation">
                 {#each navigation as item}
@@ -48,9 +51,10 @@
                   </a>
                 {/each}
               </nav>
-              <Button href={business.booking} variant="secondary">Book Your SlushUp</Button>
-              <a class="menu-contact" href={business.whatsapp}
-                >Let's talk on WhatsApp <ArrowUpRight size={16} aria-hidden="true" /></a
+              <Button href={`mailto:${profile.email}`} variant="secondary">Discuss a project</Button
+              >
+              <a class="menu-contact" href={profile.github}
+                >Explore my GitHub <ArrowUpRight size={16} aria-hidden="true" /></a
               >
             </Dialog.Content>
           </Dialog.Portal>
@@ -75,7 +79,7 @@
     top: 1rem;
   }
 
-  /* Keep scrolling on the browser's native path, including the banner handoff. */
+  /* Keep the header on native sticky positioning across route transitions. */
   .header-anchor {
     position: sticky;
     top: 0;

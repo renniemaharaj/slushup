@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://slushuptt.com/sitemap.xml
+Sitemap: https://thewriterco.com/sitemap.xml

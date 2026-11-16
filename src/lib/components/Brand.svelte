@@ -1,25 +1,43 @@
-<a href="/#hero" title="SlushUp home" class="brand">
-  <img
-    src="/slushup-logo.webp?v=3"
-    srcset="/slushup-logo.webp?v=3 128w, /slushup-logo-256.webp?v=3 256w"
-    sizes="(max-width: 900px) 52px, 96px"
-    width="96"
-    height="96"
-    alt="SlushUp Premium Drinks Bar"
-  />
+<a href="/" class="brand" aria-label="Rennie Maharaj home">
+  <span class="monogram" aria-hidden="true">rm<span>.</span></span>
+  <span class="brand-name">Rennie Maharaj<span>Software & systems</span></span>
 </a>
 
 <style>
   .brand {
     display: inline-flex;
-    flex-shrink: 0;
     align-items: center;
-    width: max-content;
+    gap: 0.85rem;
+    flex-shrink: 0;
   }
 
-  img {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
+  .monogram {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.12em;
+  }
+
+  .monogram > span {
+    color: var(--lime);
+  }
+
+  .brand-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .brand-name > span {
+    display: block;
+    color: var(--on-dark);
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 420px) {
+    .brand-name {
+      display: none;
+    }
   }
 </style>

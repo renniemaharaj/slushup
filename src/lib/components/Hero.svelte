@@ -1,305 +1,272 @@
 <script lang="ts">
-  import { Martini, Gem, UsersRound, ArrowDown } from '@lucide/svelte';
-  import Media from './Media.svelte';
+  import Github from '#lib/components/GithubIcon.svelte';
+  import { ArrowDown, ArrowUpRight, MapPin } from '@lucide/svelte';
   import Button from './Button.svelte';
-  import Wave from './Wave.svelte';
-  import { business } from '#lib/content/business.ts';
+  import { profile } from '#lib/content/profile.ts';
 </script>
 
-<section id="hero" class="hero dark" aria-labelledby="hero-heading">
-  <div class="hero-photo" data-parallax>
-    <Media
-      name="drinks-image-weddings-wide.jpeg"
-      alt="Colourful SlushUp cocktails with fresh fruit garnishes, prepared for a celebration"
-      priority
-      sizes="(min-width: 900px) 80vw, 100vw"
-      position="60% center"
-    />
-  </div>
-  <div class="hero-shade"></div>
-  <div class="container hero-content">
-    <p class="eyebrow hero-reveal">Premium alcoholic &amp; non-alcoholic treats</p>
-    <h1 id="hero-heading">
-      <span class="hero-line">Good company.</span>
-      <span class="hero-line">Great drinks.</span>
-      <span class="hero-line accent">Unforgettable <em>moments.</em></span>
-    </h1>
-    <p class="hero-description hero-reveal">
-      Luxury mobile bar &amp; bartending services. We bring the cocktails, the frozen treats, and a
-      little SlushUp magic to your celebration.
-    </p>
-    <div class="actions hero-reveal">
-      <Button href={business.booking} variant="secondary" size="large">Let's Plan Your Event</Button
+<section id="hero" class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-kicker">
+      <p>Independent thinking. Practical software.</p>
+      <a href={profile.github}
+        >Go · TypeScript · Systems <ArrowUpRight size={16} aria-hidden="true" /></a
       >
-      <Button href="#services" variant="outline" size="large">Explore Services</Button>
     </div>
-    <ul class="hero-benefits hero-reveal" aria-label="The SlushUp experience">
-      <li><Martini size={18} aria-hidden="true" /> Premium drinks</li>
-      <li><UsersRound size={18} aria-hidden="true" /> Professional staff</li>
-      <li><Gem size={18} aria-hidden="true" /> Made for your event</li>
-    </ul>
+    <div class="hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Software Engineer &amp; Integrations Consultant</p>
+        <h1 id="hero-title">Rennie<br />Maharaj<span>.</span></h1>
+        <p class="hero-positioning">Thoughtful software.<br />Built for the real world.</p>
+        <p class="lead">
+          I design and build web applications, backend systems, developer tools, and enterprise
+          integrations. Maintainable by design. Straightforward to operate.
+        </p>
+        <div class="actions">
+          <Button href="/#work">Explore my work</Button>
+          <Button href="/#services" variant="text">Engineering services</Button>
+        </div>
+      </div>
+      <div class="hero-portrait" data-reveal>
+        <div class="portrait-frame" data-parallax>
+          <img
+            src="/projects/rennie-maharaj.webp"
+            srcset="/projects/rennie-maharaj-small.webp 230w, /projects/rennie-maharaj.webp 460w"
+            sizes="(max-width: 700px) 260px, 420px"
+            width="460"
+            height="460"
+            alt="Rennie Maharaj"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="portrait-note">
+          <span class="note-mark" aria-hidden="true">↗</span>
+          <p>
+            Curious about how things work.<br /><strong>Careful about how they’re built.</strong>
+          </p>
+        </div>
+        <div class="portrait-location">
+          <MapPin size={15} aria-hidden="true" />
+          {profile.location}
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <a href="/#work" class="scroll-cue"
+        ><span class="circle"><ArrowDown size={18} aria-hidden="true" /></span> A closer look at the work</a
+      >
+      <div class="hero-links">
+        <a href={`mailto:${profile.email}`}
+          >Contact me <ArrowUpRight size={16} aria-hidden="true" /></a
+        >
+        <a href={profile.github}><Github size={17} aria-hidden="true" /> GitHub</a>
+      </div>
+    </div>
   </div>
-  <a href="#experience" class="scroll-cue">
-    <span><ArrowDown size={15} aria-hidden="true" /></span>
-    Scroll to discover
-    <i></i>
-  </a>
-  <div class="photo-note">
-    <span>The SlushUp experience</span><small>Real drinks. Real celebrations.</small>
-  </div>
-  <Wave layered />
 </section>
 
 <style>
   .hero {
-    position: relative;
+    overflow: clip;
+    padding-top: 9.5rem;
+    background: var(--ivory);
+  }
+
+  .hero-kicker,
+  .hero-bottom {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    min-height: min(850px, 95svh);
-    min-height: clamp(710px, 57vw, 850px);
-    isolation: isolate;
-    overflow: hidden;
+    gap: 1rem;
+    font-size: var(--text-small);
   }
 
-  .hero-photo {
-    position: absolute;
-    inset: 0 0 0 24%;
-    z-index: -3;
+  .hero-kicker {
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
   }
 
-  .hero-shade {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background: var(--hero-gradient);
+  .hero-kicker a,
+  .hero-links a,
+  .scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
   }
 
-  .hero-content {
-    position: relative;
-    padding-block: 155px 125px;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: clamp(3rem, 8vw, 8rem);
+    padding-block: 3.7rem 4.5rem;
   }
 
   .eyebrow {
-    margin-bottom: 1.5rem;
-    font-size: var(--text-small);
+    font-size: 0.85rem;
+    margin-bottom: 1.6rem;
   }
 
   h1 {
-    max-width: 690px;
+    font-size: clamp(4.5rem, 8.7vw, 8.3rem);
+    line-height: 0.95;
+    letter-spacing: -0.075em;
+    font-weight: 600;
   }
 
-  .hero-line {
-    display: block;
+  h1 > span {
+    color: var(--green);
   }
 
-  .accent {
-    max-width: 650px;
-    color: var(--lime);
+  .hero-positioning {
+    margin-top: 2rem;
+    font-size: clamp(1.45rem, 2.3vw, 2rem);
+    line-height: 1.35;
+    letter-spacing: -0.04em;
+    font-weight: 500;
   }
 
-  em {
-    font-family: Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.055em;
+  .lead {
+    max-width: 500px;
+    margin-block: 1rem 1.6rem;
   }
 
-  .hero-description {
-    max-width: 430px;
-    margin-top: 1.6rem;
-    color: var(--on-dark);
-    font-size: var(--text-body);
+  .hero-portrait {
+    position: relative;
+    padding-top: 2.4rem;
   }
 
-  .actions {
-    margin-top: 1.8rem;
+  .portrait-frame {
+    overflow: hidden;
+    border-radius: 45% 45% 1.5rem 1.5rem;
+    background: #d1d5ca;
+    aspect-ratio: 0.92;
   }
 
-  .hero-benefits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.8rem;
-    padding: 0;
-    margin: 2.6rem 0 0;
-    list-style: none;
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .hero-benefits li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: var(--text-small);
-  }
-
-  .hero-benefits :global(svg) {
-    color: var(--lime);
-    stroke-width: 1.3;
-  }
-
-  .scroll-cue {
-    position: absolute;
-    bottom: 65px;
-    left: var(--gutter);
+  .portrait-note {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: var(--text-small);
+    gap: 1.2rem;
+    width: calc(100% + 1.5rem);
+    margin: -1.8rem 0 0 -1.5rem;
+    padding: 1.4rem 1.6rem;
+    color: var(--ivory);
+    background: var(--forest);
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow);
+  }
+
+  .note-mark {
+    color: var(--lime);
+    font-size: 2rem;
+  }
+
+  .portrait-note p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .portrait-note strong {
+    font-weight: 500;
     color: var(--on-dark);
   }
 
-  .scroll-cue span {
+  .portrait-location {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 1.1rem;
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+
+  .hero-bottom {
+    padding-block: 1.4rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .circle {
     display: grid;
-    place-items: center;
-    width: 25px;
+    width: 38px;
     height: 38px;
-    border: 1px solid var(--line-dark);
-    border-radius: 999px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    place-items: center;
   }
 
-  .scroll-cue i {
-    width: 40px;
-    height: 1px;
-    background: var(--line-dark);
-  }
-
-  .photo-note {
-    position: absolute;
-    right: var(--gutter);
-    bottom: 115px;
-    text-align: right;
-  }
-
-  .photo-note span {
-    font-size: var(--text-small);
-    letter-spacing: 0;
-  }
-
-  .photo-note small {
-    display: block;
-    margin-top: 0.5rem;
-    color: var(--on-dark);
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 1rem;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-photo :global(img) {
-      animation: settle 1.1s var(--ease);
-    }
-
-    .hero-line {
-      animation: rise 0.65s var(--ease);
-    }
-
-    .hero-line:nth-child(2) {
-      animation-duration: 0.75s;
-    }
-
-    .hero-line:nth-child(3) {
-      animation-duration: 0.85s;
-    }
-  }
-
-  @keyframes settle {
-    from {
-      transform: scale(1.025);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes rise {
-    from {
-      transform: translateY(12px);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  @media (min-width: 1600px) {
-    .hero-photo {
-      inset-inline-start: 30%;
-    }
+  .hero-links {
+    display: flex;
+    gap: 2rem;
   }
 
   @media (max-width: 900px) {
     .hero {
-      min-height: 800px;
-      align-items: end;
+      padding-top: 7.5rem;
     }
 
-    .hero-photo {
-      inset: 0 0 25%;
-    }
-
-    .hero-shade {
-      background: var(--hero-gradient-mobile);
-    }
-
-    .hero-content {
-      padding-block: 250px 130px;
+    .hero-grid {
+      gap: 2.5rem;
     }
 
     h1 {
-      max-width: 600px;
+      font-size: clamp(4rem, 9vw, 7rem);
     }
 
-    .photo-note {
-      display: none;
-    }
-
-    .scroll-cue {
-      bottom: 55px;
+    .portrait-note {
+      padding: 1rem;
     }
   }
 
-  @media (max-width: 540px) {
-    .hero {
-      min-height: 850px;
+  @media (max-width: 700px) {
+    .hero-kicker > a {
+      display: none;
     }
 
-    .hero-content {
-      padding-top: 270px;
-      padding-bottom: 120px;
+    .hero-grid {
+      grid-template-columns: 1fr;
+      padding-block: 2.5rem;
+      gap: 0;
     }
 
-    .hero-photo {
-      inset: 60px -25% 40%;
+    h1 {
+      font-size: clamp(4.8rem, 16vw, 7rem);
     }
 
-    .eyebrow {
-      max-width: 280px;
-      font-size: var(--text-small);
+    .hero-portrait {
+      width: min(310px, 90%);
+      margin: 0 0 0 auto;
     }
 
-    .hero-description {
-      font-size: var(--text-body);
+    .portrait-frame {
+      aspect-ratio: 1.15;
+      border-radius: 6rem 6rem 1rem 1rem;
     }
 
-    .hero-benefits {
-      gap: 1rem;
-      margin-top: 1.8rem;
+    .hero-bottom {
+      align-items: start;
     }
 
-    .hero-benefits li {
-      font-size: var(--text-small);
-      gap: 0.4rem;
+    .scroll-cue {
+      max-width: 150px;
+      line-height: 1.5;
     }
 
-    .hero-benefits :global(svg) {
-      width: 15px;
+    .circle {
+      flex-shrink: 0;
     }
 
-    .actions {
-      gap: 0.7rem;
-    }
-
-    .actions :global(.button) {
-      padding-inline: 1.1rem;
-      font-size: var(--text-small);
-      gap: 0.8rem;
+    .hero-links {
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-top: 0.5rem;
     }
   }
 </style>

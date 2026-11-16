@@ -1,8 +1,11 @@
 <script lang="ts">
   import '../lib/styles/global.css';
-  import BannerStack from '#lib/components/BannerStack.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import Footer from '#lib/components/Footer.svelte';
+
   let { children } = $props();
 </script>
 
-<BannerStack />
+<Header />
 {@render children()}
+<Footer />

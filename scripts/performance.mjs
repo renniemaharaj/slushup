@@ -3,8 +3,8 @@ import desktopConfig from 'lighthouse/core/config/desktop-config.js';
 import { launch } from 'chrome-launcher';
 import { mkdir, writeFile } from 'node:fs/promises';
 
-const url = process.env.PREVIEW_URL || 'http://127.0.0.1:4174';
-const directory = process.env.AUDIT_DIRECTORY || 'docs/audit/after';
+const url = process.env.PREVIEW_URL || 'http://127.0.0.1:4181';
+const directory = process.env.AUDIT_DIRECTORY || 'artifacts/performance';
 await mkdir(directory, { recursive: true });
 const summary = {};
 

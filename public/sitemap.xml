@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://slushuptt.com/</loc></url>
-  <url><loc>https://slushuptt.com/privacy-policy/</loc></url>
-  <url><loc>https://slushuptt.com/terms-and-conditions/</loc></url>
-  <url><loc>https://slushuptt.com/cookie-policy/</loc></url>
+  <url><loc>https://thewriterco.com/</loc></url>
+  <url><loc>https://thewriterco.com/credits/</loc></url>
+  <url><loc>https://thewriterco.com/projects/go-web-framework/</loc></url>
+  <url><loc>https://thewriterco.com/projects/aircon/</loc></url>
+  <url><loc>https://thewriterco.com/projects/chronicle/</loc></url>
+  <url><loc>https://thewriterco.com/projects/go-api-kit/</loc></url>
+  <url><loc>https://thewriterco.com/projects/frappe-docker/</loc></url>
+  <url><loc>https://thewriterco.com/projects/jvms/</loc></url>
 </urlset>
