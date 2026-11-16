@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# SvelteKit and QA output
+.svelte-kit/
+build/
+playwright-report/
+test-results/
+artifacts/
