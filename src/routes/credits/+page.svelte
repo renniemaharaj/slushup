@@ -89,7 +89,8 @@
       This static portfolio has no contact form backend, advertising trackers, or analytics
       integrations. Contact links open your email or phone application. External source links take
       you to their respective services. Standard hosting request logs depend on the deployment
-      provider.
+      provider. Read the <a href="/privacy-policy/">Privacy Policy</a> and
+      <a href="/cookie-policy/">Cookie Policy</a> for more information.
     </p>
   </section>
   <a class="text-link" href="/">Return to the portfolio</a>

@@ -4,6 +4,7 @@
   import { ArrowUpRight, Mail, Phone } from '@lucide/svelte';
   import { profile, navigation } from '#lib/content/profile.ts';
   import Brand from './Brand.svelte';
+  import { policies } from '#lib/content/policies.ts';
 </script>
 
 <footer id="contact" class="dark">
@@ -43,8 +44,13 @@
     <div class="footer-bottom">
       <p>© {new Date().getFullYear()} Rennie Maharaj · TheWriterCo</p>
       <p>Made with care in Trinidad &amp; Tobago.</p>
-      <a href="/credits/">Sources &amp; credits</a>
     </div>
+    <nav class="policy-links" aria-label="Legal and policies">
+      {#each policies as policy}
+        <a href={`/${policy.slug}/`}>{policy.title}</a>
+      {/each}
+      <a href="/credits/">Sources &amp; credits</a>
+    </nav>
   </div>
 </footer>
 
@@ -147,6 +153,24 @@
     padding-top: 1.4rem;
     color: var(--on-dark);
     font-size: 0.7rem;
+  }
+
+  .policy-links {
+    gap: 0.5rem 1.4rem;
+    padding-top: 1rem;
+    color: var(--on-dark);
+    font-size: 0.75rem;
+  }
+
+  .policy-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    text-underline-offset: 4px;
+  }
+
+  .policy-links a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 800px) {
