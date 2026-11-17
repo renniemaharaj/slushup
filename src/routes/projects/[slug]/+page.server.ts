@@ -12,7 +12,6 @@ export function load({ params }: { params: { slug: string } }) {
   }
 
   return {
-    project: projects[index],
-    next: projects[(index + 1) % projects.length]
+    project: projects[index]
   };
 }

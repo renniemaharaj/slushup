@@ -3,11 +3,12 @@
   import { ArrowLeft, ArrowUpRight, Check } from '@lucide/svelte';
   import SEO from '#lib/components/SEO.svelte';
   import ProjectVisual from '#lib/components/ProjectVisual.svelte';
+  import ProjectExplorer from '#lib/components/ProjectExplorer.svelte';
   import Button from '#lib/components/Button.svelte';
   import { profile } from '#lib/content/profile.ts';
   import type { Project } from '#lib/content/projects.ts';
 
-  let { data }: { data: { project: Project; next: Project } } = $props();
+  let { data }: { data: { project: Project } } = $props();
   const project = $derived(data.project);
   const source = $derived(`https://github.com/${project.repo}`);
 </script>
@@ -111,12 +112,7 @@
         </section>
       </div>
     </div>
-    <a class="next-project" href={`/projects/${data.next.slug}/`}
-      ><span
-        ><span class="eyebrow">Next project</span><span class="next-name">{data.next.name}</span
-        ></span
-      ><ArrowUpRight size={40} strokeWidth={1.2} aria-hidden="true" /></a
-    >
+    <ProjectExplorer currentSlug={project.slug} />
   </div>
 </main>
 
@@ -293,20 +289,6 @@
     padding-block: 1rem;
     border-bottom: 1px solid var(--line);
     font-size: var(--text-small);
-  }
-
-  .next-project {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding-block: 2.5rem;
-    border-top: 1px solid var(--line);
-  }
-
-  .next-name {
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: -0.045em;
   }
 
   @media (max-width: 700px) {
